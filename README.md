@@ -1,73 +1,31 @@
-# React + TypeScript + Vite
+# ✦ WishlistHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **A sua vitrine pessoal de desejos.** Salve, organize e acompanhe tudo o que você quer comprar em um só lugar.
 
-Currently, two official plugins are available:
+## 📌 Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O **WishlistHub** nasceu para resolver um problema simples: perder os links daquelas roupas, peças de PC ou produtos incríveis que achamos pela internet e queremos comprar depois. 
 
-## React Compiler
+Em vez de deixar abas abertas no navegador ou mandar links para você mesmo no WhatsApp, o WishlistHub permite que você crie sua própria "vitrine" digital. Você adiciona o link, coloca uma foto, o preço e organiza tudo em pastas temáticas. Tudo isso funcionando direto no seu navegador, sem precisar criar conta ou fazer login.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ O que você pode fazer?
+- **Salvar Links Rápidos:** Adicione URLs de produtos de qualquer loja.
+- **Organização por Pastas:** Separe seus itens (ex: "Setup PC", "Streetwear", "Presentes").
+- **Acompanhamento de Compras:** Marque os itens que você já comprou para ter controle do que falta.
+- **Modo Vitrine:** Visualize seus produtos em um formato focado na imagem, como um catálogo.
+- **Seguro e Offline:** Seus dados ficam salvos apenas no seu próprio navegador (LocalStorage), garantindo total privacidade.
+- **Lixeira Temporária:** Apagou sem querer? Você tem 30 dias para recuperar seus itens.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologias Utilizadas
+Este projeto foi desenvolvido com foco em minimalismo e alta performance:
+- **React 18** + **TypeScript**
+- **Vite** (Build tool super rápida)
+- **Tailwind CSS** (Para um design limpo e responsivo)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Como rodar o projeto localmente
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Se quiser rodar o WishlistHub na sua máquina, o processo é bem simples:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone este repositório
+```bash
+git clone [https://github.com/devgiusti/wishlisthub.git](https://github.com/devgiusti/wishlisthub.git)
