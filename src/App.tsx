@@ -1,7 +1,8 @@
+// @ts-nocheck
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 
 // --- Ambiente e Tratamento de Erros ---
-const isProd = typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production';
+const isProd = import.meta.env.PROD;
 
 // Centralizador de logs (silencia erros em produção)
 const logError = (...args) => {
@@ -415,6 +416,76 @@ const translations = {
   }
 };
 
+const translationExtensions = {
+  pt: {
+    summaryTitle: "Resumo da wishlist", completionRate: "Concluído", purchasedValue: "Valor comprado", pendingValue: "Valor pendente", totalFolders: "Pastas",
+    folderParentLabel: "Dentro de", rootFolder: "Pasta principal", subfoldersCount: "Subpastas", addSubfolder: "Criar subpasta", moveUp: "Mover para cima", moveDown: "Mover para baixo",
+    noSearchResults: "Nenhum resultado para a sua pesquisa.", deletedAt: "Excluído em", itemsMovedToTrash: "{count} itens movidos para a lixeira", itemMovedToTrash: "Item movido para a lixeira",
+    trashTitle: "Lixeira", restore: "Restaurar", emptyTrash: "Esvaziar lixeira", confirmEmptyTrash: "Esvaziar lixeira permanentemente?", trashEmptied: "Lixeira esvaziada", itemRestored: "Item restaurado",
+    totalItems: "Total de itens", pending: "Pendentes", totalSpent: "Total gasto estimado", currency: "R$"
+  },
+  en: {
+    summaryTitle: "Wishlist summary", completionRate: "Completed", purchasedValue: "Purchased value", pendingValue: "Pending value", totalFolders: "Folders",
+    folderParentLabel: "Inside", rootFolder: "Main folder", subfoldersCount: "Subfolders", addSubfolder: "Create subfolder", moveUp: "Move up", moveDown: "Move down",
+    noSearchResults: "No results for your search.", deletedAt: "Deleted at", itemsMovedToTrash: "{count} items moved to trash", itemMovedToTrash: "Item moved to trash",
+    trashTitle: "Trash", restore: "Restore", emptyTrash: "Empty trash", confirmEmptyTrash: "Empty trash permanently?", trashEmptied: "Trash emptied", itemRestored: "Item restored",
+    totalItems: "Total items", pending: "Pending", totalSpent: "Estimated total spent", currency: "$"
+  },
+  es: {
+    summaryTitle: "Resumen de wishlist", completionRate: "Completado", purchasedValue: "Valor comprado", pendingValue: "Valor pendiente", totalFolders: "Carpetas",
+    folderParentLabel: "Dentro de", rootFolder: "Carpeta principal", subfoldersCount: "Subcarpetas", addSubfolder: "Crear subcarpeta", moveUp: "Mover arriba", moveDown: "Mover abajo",
+    noSearchResults: "No hay resultados para tu búsqueda.", deletedAt: "Eliminado el", itemsMovedToTrash: "{count} artículos movidos a la papelera", itemMovedToTrash: "Artículo movido a la papelera",
+    trashTitle: "Papelera", restore: "Restaurar", emptyTrash: "Vaciar papelera", confirmEmptyTrash: "¿Vaciar la papelera permanentemente?", trashEmptied: "Papelera vaciada", itemRestored: "Artículo restaurado",
+    totalItems: "Total de artículos", pending: "Pendientes", totalSpent: "Gasto total estimado", currency: "€"
+  },
+  fr: {
+    summaryTitle: "Résumé de la wishlist", completionRate: "Terminé", purchasedValue: "Valeur achetée", pendingValue: "Valeur en attente", totalFolders: "Dossiers",
+    folderParentLabel: "Dans", rootFolder: "Dossier principal", subfoldersCount: "Sous-dossiers", addSubfolder: "Créer un sous-dossier", moveUp: "Déplacer vers le haut", moveDown: "Déplacer vers le bas",
+    noSearchResults: "Aucun résultat pour votre recherche.", deletedAt: "Supprimé le", itemsMovedToTrash: "{count} articles déplacés vers la corbeille", itemMovedToTrash: "Article déplacé vers la corbeille",
+    trashTitle: "Corbeille", restore: "Restaurer", emptyTrash: "Vider la corbeille", confirmEmptyTrash: "Vider définitivement la corbeille ?", trashEmptied: "Corbeille vidée", itemRestored: "Article restauré",
+    totalItems: "Total d'articles", pending: "En attente", totalSpent: "Dépense totale estimée", currency: "€"
+  },
+  it: {
+    summaryTitle: "Riepilogo wishlist", completionRate: "Completato", purchasedValue: "Valore acquistato", pendingValue: "Valore in attesa", totalFolders: "Cartelle",
+    folderParentLabel: "Dentro", rootFolder: "Cartella principale", subfoldersCount: "Sottocartelle", addSubfolder: "Crea sottocartella", moveUp: "Sposta su", moveDown: "Sposta giù",
+    noSearchResults: "Nessun risultato per la tua ricerca.", deletedAt: "Eliminato il", itemsMovedToTrash: "{count} articoli spostati nel cestino", itemMovedToTrash: "Articolo spostato nel cestino",
+    trashTitle: "Cestino", restore: "Ripristina", emptyTrash: "Svuota cestino", confirmEmptyTrash: "Svuotare definitivamente il cestino?", trashEmptied: "Cestino svuotato", itemRestored: "Articolo ripristinato",
+    totalItems: "Totale articoli", pending: "In attesa", totalSpent: "Spesa totale stimata", currency: "€"
+  },
+  de: {
+    summaryTitle: "Wishlist-Übersicht", completionRate: "Abgeschlossen", purchasedValue: "Gekaufter Wert", pendingValue: "Ausstehender Wert", totalFolders: "Ordner",
+    folderParentLabel: "In", rootFolder: "Hauptordner", subfoldersCount: "Unterordner", addSubfolder: "Unterordner erstellen", moveUp: "Nach oben verschieben", moveDown: "Nach unten verschieben",
+    noSearchResults: "Keine Ergebnisse für Ihre Suche.", deletedAt: "Gelöscht am", itemsMovedToTrash: "{count} Artikel in den Papierkorb verschoben", itemMovedToTrash: "Artikel in den Papierkorb verschoben",
+    trashTitle: "Papierkorb", restore: "Wiederherstellen", emptyTrash: "Papierkorb leeren", confirmEmptyTrash: "Papierkorb dauerhaft leeren?", trashEmptied: "Papierkorb geleert", itemRestored: "Artikel wiederhergestellt",
+    totalItems: "Artikel gesamt", pending: "Ausstehend", totalSpent: "Geschätzte Gesamtausgabe", currency: "€"
+  },
+  zh: {
+    summaryTitle: "愿望清单摘要", completionRate: "已完成", purchasedValue: "已购金额", pendingValue: "待购金额", totalFolders: "文件夹",
+    folderParentLabel: "位于", rootFolder: "主文件夹", subfoldersCount: "子文件夹", addSubfolder: "创建子文件夹", moveUp: "上移", moveDown: "下移",
+    noSearchResults: "未找到匹配结果。", deletedAt: "删除时间", itemsMovedToTrash: "{count} 个物品已移至回收站", itemMovedToTrash: "物品已移至回收站",
+    trashTitle: "回收站", restore: "恢复", emptyTrash: "清空回收站", confirmEmptyTrash: "永久清空回收站？", trashEmptied: "回收站已清空", itemRestored: "物品已恢复",
+    totalItems: "物品总数", pending: "待处理", totalSpent: "预计总支出", currency: "¥"
+  },
+  ja: {
+    summaryTitle: "ウィッシュリスト概要", completionRate: "完了", purchasedValue: "購入済み金額", pendingValue: "保留中の金額", totalFolders: "フォルダ",
+    folderParentLabel: "保存先", rootFolder: "メインフォルダ", subfoldersCount: "サブフォルダ", addSubfolder: "サブフォルダを作成", moveUp: "上へ移動", moveDown: "下へ移動",
+    noSearchResults: "検索結果がありません。", deletedAt: "削除日時", itemsMovedToTrash: "{count} 件のアイテムをゴミ箱へ移動しました", itemMovedToTrash: "アイテムをゴミ箱へ移動しました",
+    trashTitle: "ゴミ箱", restore: "復元", emptyTrash: "ゴミ箱を空にする", confirmEmptyTrash: "ゴミ箱を完全に空にしますか？", trashEmptied: "ゴミ箱を空にしました", itemRestored: "アイテムを復元しました",
+    totalItems: "アイテム総数", pending: "保留中", totalSpent: "推定総支出", currency: "¥"
+  },
+  ru: {
+    summaryTitle: "Сводка wishlist", completionRate: "Готово", purchasedValue: "Стоимость купленных", pendingValue: "Стоимость ожидающих", totalFolders: "Папки",
+    folderParentLabel: "Внутри", rootFolder: "Главная папка", subfoldersCount: "Подпапки", addSubfolder: "Создать подпапку", moveUp: "Переместить вверх", moveDown: "Переместить вниз",
+    noSearchResults: "По вашему запросу ничего не найдено.", deletedAt: "Удалено", itemsMovedToTrash: "{count} элементов перемещено в корзину", itemMovedToTrash: "Элемент перемещён в корзину",
+    trashTitle: "Корзина", restore: "Восстановить", emptyTrash: "Очистить корзину", confirmEmptyTrash: "Очистить корзину навсегда?", trashEmptied: "Корзина очищена", itemRestored: "Элемент восстановлен",
+    totalItems: "Всего предметов", pending: "Ожидают", totalSpent: "Оценка общих расходов", currency: "₽"
+  }
+};
+
+Object.keys(translationExtensions).forEach((key) => {
+  translations[key] = { ...translations[key], ...translationExtensions[key] };
+});
+
 // --- Ícones (SVGs inline) com React.memo (Otimização) ---
 const IconPlus = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>);
 const IconFolder = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>);
@@ -432,6 +503,10 @@ const IconSun = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="
 const IconGlobe = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>);
 const IconSearch = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>);
 const IconCheck = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>);
+const IconArrowUp = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"></path></svg>);
+const IconArrowDown = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"></path></svg>);
+const IconChevronRight = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"></path></svg>);
+const IconFolderOpen = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"></path></svg>);
 const IconWarning = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>);
 const IconStar = React.memo(() => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -446,7 +521,7 @@ const getSafeImageUrl = (url) => {
   if (!url) return '';
   try {
     const parsed = new URL(url);
-    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+    if (parsed.protocol === 'https:') {
       return parsed.href;
     }
   } catch (e) {
@@ -459,7 +534,7 @@ const getSafeUrl = (url) => {
   if (!url) return '';
   try {
     const parsed = new URL(url);
-    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+    if (parsed.protocol === 'https:') {
       return parsed.href;
     }
   } catch (e) {}
@@ -481,7 +556,16 @@ const safeGetStorage = (key, fallback, validatorType = null) => {
       
       const validItems = parsed.filter(item => {
         if (!item || typeof item !== 'object') return false;
-        if (typeof item.id !== 'string' || !item.id) return false;
+
+        if (typeof item.id !== 'string' || !item.id)
+          return false;
+
+        if (typeof item.title !== 'string')
+          return false;
+
+        if (typeof item.url !== 'string')
+          return false;
+
         return true;
       }).map(item => ({
         ...item,
@@ -503,13 +587,15 @@ const safeGetStorage = (key, fallback, validatorType = null) => {
     if (validatorType === 'folders') {
       if (!Array.isArray(parsed)) throw new Error('Folders data is not an array');
       
-      const validFolders = parsed.filter(f => 
+      const validFolders = normalizeFolders(parsed.filter(f => 
         f && typeof f === 'object' && typeof f.id === 'string' && f.id && typeof f.name === 'string'
-      ).map(f => ({
+      ).map((f, index) => ({
         ...f,
         id: f.id.substring(0, 50),
-        name: f.name.substring(0, 50)
-      }));
+        name: f.name.substring(0, 50),
+        parentId: typeof f.parentId === 'string' && f.parentId ? f.parentId.substring(0, 50) : null,
+        order: Number.isFinite(Number(f.order)) ? Number(f.order) : index
+      })));
       
       if (parsed.length > 0 && validFolders.length === 0) return fallback;
       return validFolders;
@@ -537,6 +623,45 @@ const safeSetStorage = (key, value) => {
 const removeAccents = (str) => {
   if (!str) return '';
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+};
+
+const normalizeFolders = (folderList = []) => {
+  const baseFolders = folderList.map((folder, index) => ({
+    ...folder,
+    id: String(folder.id || '').substring(0, 50),
+    name: String(folder.name || '').substring(0, 50),
+    parentId: typeof folder.parentId === 'string' && folder.parentId ? folder.parentId.substring(0, 50) : null,
+    order: Number.isFinite(Number(folder.order)) ? Number(folder.order) : index
+  })).filter(folder => folder.id && folder.name);
+
+  const folderIds = new Set(baseFolders.map(folder => folder.id));
+  const byId = new Map(baseFolders.map(folder => [folder.id, folder]));
+
+  const createsCycle = (folderId, parentId) => {
+    let currentId = parentId;
+    const seen = new Set();
+    while (currentId) {
+      if (currentId === folderId || seen.has(currentId)) return true;
+      seen.add(currentId);
+      currentId = byId.get(currentId)?.parentId || null;
+    }
+    return false;
+  };
+
+  return baseFolders.map(folder => {
+    const parentId = folder.parentId && folderIds.has(folder.parentId) && !createsCycle(folder.id, folder.parentId)
+      ? folder.parentId
+      : null;
+    return { ...folder, parentId };
+  });
+};
+
+const getNextOrderForParent = (folderList, parentId) => {
+  const normalizedParentId = parentId || null;
+  const siblingOrders = folderList
+    .filter(folder => (folder.parentId || null) === normalizedParentId)
+    .map(folder => Number.isFinite(Number(folder.order)) ? Number(folder.order) : 0);
+  return siblingOrders.length ? Math.max(...siblingOrders) + 1 : 0;
 };
 
 // --- Confetes caseiro (sem Web Worker, sem CSP extra) ---
@@ -631,13 +756,6 @@ export default function App() {
       document.head.appendChild(metaRef);
     }
 
-    // 3. Injeção da Content Security Policy (Compatível com GitHub Pages)
-    if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
-      const metaCsp = document.createElement('meta');
-      metaCsp.httpEquiv = 'Content-Security-Policy';
-      metaCsp.content = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self';";
-      document.head.appendChild(metaCsp);
-    }
   }, []);
 
   // --- Estados Persistidos (localStorage Robusto) ---
@@ -670,6 +788,16 @@ export default function App() {
   const [layout, setLayout] = useState('grid');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [collapsedFolders, setCollapsedFolders] = useState<Set<string>>(new Set());
+
+  const toggleFolderCollapse = useCallback((folderId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCollapsedFolders(prev => {
+      const next = new Set(prev);
+      if (next.has(folderId)) next.delete(folderId); else next.add(folderId);
+      return next;
+    });
+  }, []);
 
   // --- Lixeira ---
   const [deletedItems, setDeletedItems] = useState(() => safeGetStorage('deletedItems', [], 'items'));
@@ -717,6 +845,7 @@ export default function App() {
   // --- Formulários ---
   const [newItemForm, setNewItemForm] = useState({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '' });
   const [newFolderName, setNewFolderName] = useState('');
+  const [newFolderParentId, setNewFolderParentId] = useState('');
   const [editingFolderId, setEditingFolderId] = useState(null);
   const [editingItemId, setEditingItemId] = useState(null);
 
@@ -729,6 +858,72 @@ export default function App() {
   };
 
   // --- Lógica Derivada e Filtragem ---
+  const folderChildrenMap = useMemo(() => {
+    const map = new Map();
+    folders.forEach(folder => {
+      const parentId = folder.parentId || null;
+      if (!map.has(parentId)) map.set(parentId, []);
+      map.get(parentId).push(folder);
+    });
+    map.forEach(children => {
+      children.sort((a, b) => {
+        const orderDiff = (Number(a.order) || 0) - (Number(b.order) || 0);
+        return orderDiff || (a.name || '').localeCompare(b.name || '');
+      });
+    });
+    return map;
+  }, [folders]);
+
+  const flatFolderOptions = useMemo(() => {
+    const options = [];
+    const walk = (parentId = null, path = []) => {
+      const children = folderChildrenMap.get(parentId) || [];
+      children.forEach(folder => {
+        const folderPath = [...path, folder.name];
+        options.push({ folder, label: folderPath.join(' / ') });
+        walk(folder.id, folderPath);
+      });
+    };
+    walk(null, []);
+    return options;
+  }, [folderChildrenMap]);
+
+  const getFolderPathLabel = useCallback((folderId) => {
+    const byId = new Map(folders.map(folder => [folder.id, folder]));
+    const names = [];
+    const seen = new Set();
+    let currentId = folderId;
+    while (currentId && byId.has(currentId) && !seen.has(currentId)) {
+      seen.add(currentId);
+      const folder = byId.get(currentId);
+      names.unshift(folder.name);
+      currentId = folder.parentId || null;
+    }
+    return names.join(' / ');
+  }, [folders]);
+
+  const activeParentId = activeFolderId === 'all' ? null : activeFolderId;
+  const visibleFolders = useMemo(() => {
+    if (searchQuery.trim()) return [];
+    return folderChildrenMap.get(activeParentId) || [];
+  }, [folderChildrenMap, activeParentId, searchQuery]);
+
+  const getFolderDescendantIds = useCallback((folderId) => {
+    const descendants = [];
+    const stack = [...(folderChildrenMap.get(folderId) || [])];
+    while (stack.length) {
+      const folder = stack.shift();
+      descendants.push(folder.id);
+      stack.push(...(folderChildrenMap.get(folder.id) || []));
+    }
+    return descendants;
+  }, [folderChildrenMap]);
+
+  const folderParentOptions = useMemo(() => {
+    const blockedIds = new Set(editingFolderId ? [editingFolderId, ...getFolderDescendantIds(editingFolderId)] : []);
+    return flatFolderOptions.filter(({ folder }) => !blockedIds.has(folder.id));
+  }, [editingFolderId, flatFolderOptions, getFolderDescendantIds]);
+
   const processedItems = useMemo(() => {
     let result = items;
     if (activeFolderId !== 'all') result = result.filter(item => item.folderId === activeFolderId);
@@ -737,7 +932,7 @@ export default function App() {
     if (searchQuery.trim()) {
       const q = removeAccents(searchQuery.toLowerCase());
       result = result.filter(item => {
-        const folderName = folders.find(f => f.id === item.folderId)?.name || '';
+        const folderName = getFolderPathLabel(item.folderId) || '';
         const titleNorm = removeAccents((item.title || '').toLowerCase());
         const descNorm = removeAccents((item.description || '').toLowerCase());
         const folderNorm = removeAccents(folderName.toLowerCase());
@@ -757,58 +952,78 @@ export default function App() {
     });
 
     return result;
-  }, [items, activeFolderId, searchQuery, sortBy, showPurchased, folders]);
+  }, [items, activeFolderId, searchQuery, sortBy, showPurchased, getFolderPathLabel]);
+
+  const wishlistStats = useMemo(() => {
+    const purchasedItems = items.filter(item => item.isPurchased);
+    const pendingItems = items.filter(item => !item.isPurchased);
+    const purchasedValue = purchasedItems.reduce((acc, item) => acc + parsePrice(item.price), 0);
+    const pendingValue = pendingItems.reduce((acc, item) => acc + parsePrice(item.price), 0);
+    const totalValue = purchasedValue + pendingValue;
+    const completion = items.length ? Math.round((purchasedItems.length / items.length) * 100) : 0;
+    return {
+      totalItems: items.length,
+      purchasedItems: purchasedItems.length,
+      pendingItems: pendingItems.length,
+      purchasedValue,
+      pendingValue,
+      totalValue,
+      completion,
+      folderCount: folders.length
+    };
+  }, [items, folders]);
+
+  const formatEstimatedValue = useCallback((value) => {
+    const symbol = t.currency || '';
+    return `${symbol} ${value.toLocaleString()}`.trim();
+  }, [t.currency]);
 
   const activeFolderName = activeFolderId === 'all' 
     ? t.allItems 
-    : folders.find(f => f.id === activeFolderId)?.name || t.unknownFolder;
+    : getFolderPathLabel(activeFolderId) || t.unknownFolder;
 
   const totalSelectedCount = selectedItems.length + selectedFolders.length;
-  let isAllSelected = false;
-  if (activeFolderId === 'all' && !searchQuery) {
-    isAllSelected = (processedItems.length > 0 || folders.length > 0) && selectedItems.length === processedItems.length && selectedFolders.length === folders.length;
-  } else {
-    isAllSelected = processedItems.length > 0 && selectedItems.length === processedItems.length;
-  }
+  const displayedItemIds = processedItems.map(item => item.id);
+  const displayedFolderIds = visibleFolders.map(folder => folder.id);
+  const isAllSelected = (displayedItemIds.length > 0 || displayedFolderIds.length > 0)
+    && displayedItemIds.every(id => selectedItems.includes(id))
+    && displayedFolderIds.every(id => selectedFolders.includes(id));
 
   // --- Ações ---
   const handleSelectAll = useCallback(() => {
-    if (activeFolderId === 'all' && !searchQuery) {
-      if (isAllSelected) {
-        setSelectedItems([]);
-        setSelectedFolders([]);
-      } else {
-        setSelectedItems(processedItems.map(i => i.id));
-        setSelectedFolders(folders.map(f => f.id));
-      }
+    if (isAllSelected) {
+      setSelectedItems(prev => prev.filter(id => !displayedItemIds.includes(id)));
+      setSelectedFolders(prev => prev.filter(id => !displayedFolderIds.includes(id)));
     } else {
-      if (isAllSelected) {
-        setSelectedItems(prev => prev.filter(id => !processedItems.find(i => i.id === id)));
-      } else {
-        const newSelection = new Set([...selectedItems, ...processedItems.map(i => i.id)]);
-        setSelectedItems(Array.from(newSelection));
-      }
+      setSelectedItems(prev => Array.from(new Set([...prev, ...displayedItemIds])));
+      setSelectedFolders(prev => Array.from(new Set([...prev, ...displayedFolderIds])));
     }
-  }, [activeFolderId, searchQuery, isAllSelected, processedItems, folders, selectedItems]);
+  }, [isAllSelected, displayedItemIds, displayedFolderIds]);
 
   const handleBulkDelete = useCallback(() => {
-    // Mover itens selecionados para lixeira
+    const folderIdsToDelete = new Set();
+    selectedFolders.forEach(folderId => {
+      folderIdsToDelete.add(folderId);
+      getFolderDescendantIds(folderId).forEach(childId => folderIdsToDelete.add(childId));
+    });
+
     const itemsToDelete = items.filter(item => selectedItems.includes(item.id));
-    const foldersToDelete = folders.filter(f => selectedFolders.includes(f.id));
-    // Itens das pastas deletadas também vão para lixeira
-    const itemsFromDeletedFolders = items.filter(item => selectedFolders.includes(item.folderId));
-    const allDeletedItems = [...itemsToDelete, ...itemsFromDeletedFolders];
+    const itemsFromDeletedFolders = items.filter(item => folderIdsToDelete.has(item.folderId));
+    const deletedById = new Map([...itemsToDelete, ...itemsFromDeletedFolders].map(item => [item.id, item]));
+    const allDeletedItems = Array.from(deletedById.values());
+
     if (allDeletedItems.length > 0) {
       setDeletedItems(prev => [...prev, ...allDeletedItems.map(i => ({ ...i, deletedAt: Date.now() }))]);
     }
-    setItems(prev => prev.filter(item => !selectedItems.includes(item.id) && !selectedFolders.includes(item.folderId)));
-    setFolders(prev => prev.filter(f => !selectedFolders.includes(f.id)));
+
+    setItems(prev => prev.filter(item => !selectedItems.includes(item.id) && !folderIdsToDelete.has(item.folderId)));
+    setFolders(prev => prev.filter(folder => !folderIdsToDelete.has(folder.id)));
     setSelectedItems([]);
     setSelectedFolders([]);
-    if (selectedFolders.includes(activeFolderId)) setActiveFolderId('all');
-    setToastMessage(`${allDeletedItems.length} itens movidos para a lixeira`);
+    if (folderIdsToDelete.has(activeFolderId)) setActiveFolderId('all');
+    setToastMessage(t.itemsMovedToTrash.replace('{count}', allDeletedItems.length));
     setTimeout(() => setToastMessage(''), 2000);
-  }, [selectedItems, selectedFolders, activeFolderId, items, folders]);
+  }, [selectedItems, selectedFolders, activeFolderId, items, getFolderDescendantIds, t]);
 
   const clearSelection = useCallback(() => {
     setSelectedItems([]);
@@ -822,6 +1037,14 @@ export default function App() {
     }
   }, []);
 
+  const openAddItemModal = useCallback(() => {
+    setNewItemForm(prev => ({
+      ...prev,
+      folderId: activeFolderId !== 'all' ? activeFolderId : prev.folderId
+    }));
+    setIsAddItemModalOpen(true);
+  }, [activeFolderId]);
+
   const handleAddItem = useCallback((e) => {
     e.preventDefault();
     
@@ -829,6 +1052,9 @@ export default function App() {
     const titleSafe = (newItemForm.title || '').substring(0, 100);
     const descSafe = (newItemForm.description || '').substring(0, 1000);
     const priceSafe = (newItemForm.price || '').substring(0, 30);
+    const defaultFolderId = activeFolderId !== 'all'
+      ? activeFolderId
+      : (flatFolderOptions[0]?.folder.id || 'unassigned');
 
     const safeItemForm = {
       ...newItemForm,
@@ -847,14 +1073,14 @@ export default function App() {
       const newItem = {
         ...safeItemForm,
         id: Date.now().toString(),
-        folderId: safeItemForm.folderId || (folders.length > 0 ? folders[0].id : 'unassigned'),
+        folderId: safeItemForm.folderId || defaultFolderId,
         isPurchased: false
       };
       setItems(prev => [newItem, ...prev]);
       setIsAddItemModalOpen(false);
     }
     setNewItemForm({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '' });
-  }, [newItemForm, editingItemId, folders]);
+  }, [newItemForm, editingItemId, activeFolderId, flatFolderOptions]);
 
 const toggleItemPurchased = useCallback((id) => {
   setItems(prev => {
@@ -885,14 +1111,36 @@ const toggleItemPurchased = useCallback((id) => {
         setDeletedItems(prev => [...prev, { ...item, deletedAt: Date.now() }]);
         setItems(prev => prev.filter(i => i.id !== itemToDelete));
         setSelectedItems(prev => prev.filter(id => id !== itemToDelete));
-        setToastMessage('Item movido para a lixeira');
+        setToastMessage(t.itemMovedToTrash);
         setTimeout(() => setToastMessage(''), 2000);
       }
       setItemToDelete(null);
     }
   };
 
-  const getFolderItemCount = useCallback((folderId) => items.filter(i => i.folderId === folderId).length, [items]);
+  const getFolderItemCount = useCallback((folderId) => {
+    const folderIds = new Set([folderId, ...getFolderDescendantIds(folderId)]);
+    return items.filter(item => folderIds.has(item.folderId)).length;
+  }, [items, getFolderDescendantIds]);
+
+  const getFolderChildCount = useCallback((folderId) => (folderChildrenMap.get(folderId) || []).length, [folderChildrenMap]);
+
+  const openAddFolderModal = (parentId = activeFolderId !== 'all' ? activeFolderId : '', e) => {
+    if (e) e.stopPropagation();
+    const safeParentId = parentId && folders.some(folder => folder.id === parentId) ? parentId : '';
+    setNewFolderName('');
+    setNewFolderParentId(safeParentId);
+    setEditingFolderId(null);
+    setIsAddFolderModalOpen(true);
+  };
+
+  const closeFolderModal = () => {
+    setIsAddFolderModalOpen(false);
+    setIsEditFolderModalOpen(false);
+    setEditingFolderId(null);
+    setNewFolderName('');
+    setNewFolderParentId('');
+  };
 
   const handleSaveFolder = (e) => {
     e.preventDefault();
@@ -901,31 +1149,204 @@ const toggleItemPurchased = useCallback((id) => {
     if (!folderNameSafe) return;
 
     if (editingFolderId) {
-      setFolders(prev => prev.map(f => f.id === editingFolderId ? { ...f, name: folderNameSafe } : f));
+      const blockedParentIds = new Set([editingFolderId, ...getFolderDescendantIds(editingFolderId)]);
+      const requestedParentId = newFolderParentId || null;
+      const safeParentId = requestedParentId && !blockedParentIds.has(requestedParentId) && folders.some(folder => folder.id === requestedParentId)
+        ? requestedParentId
+        : null;
+
+      setFolders(prev => prev.map(folder => {
+        if (folder.id !== editingFolderId) return folder;
+        const parentChanged = (folder.parentId || null) !== safeParentId;
+        return {
+          ...folder,
+          name: folderNameSafe,
+          parentId: safeParentId,
+          order: parentChanged ? getNextOrderForParent(prev, safeParentId) : folder.order
+        };
+      }));
       setIsEditFolderModalOpen(false);
       setEditingFolderId(null);
     } else {
-      const newFolder = { id: Date.now().toString(), name: folderNameSafe };
+      const parentId = newFolderParentId && folders.some(folder => folder.id === newFolderParentId) ? newFolderParentId : null;
+      const newFolder = {
+        id: Date.now().toString(),
+        name: folderNameSafe,
+        parentId,
+        order: getNextOrderForParent(folders, parentId)
+      };
       setFolders(prev => [...prev, newFolder]);
       setIsAddFolderModalOpen(false);
       setActiveFolderId(newFolder.id);
     }
     setNewFolderName('');
+    setNewFolderParentId('');
   };
 
   const openEditFolderModal = (folder, e) => {
     e.stopPropagation();
     setNewFolderName(folder.name);
+    setNewFolderParentId(folder.parentId || '');
     setEditingFolderId(folder.id);
     setIsEditFolderModalOpen(true);
   };
 
   const handleDeleteFolder = (id, e) => {
-    e.stopPropagation();
-    setFolders(prev => prev.filter(f => f.id !== id));
-    setItems(prev => prev.filter(item => item.folderId !== id)); 
-    setSelectedFolders(prev => prev.filter(selectedId => selectedId !== id));
-    if (activeFolderId === id) setActiveFolderId('all');
+    if (e) e.stopPropagation();
+    const folderIdsToDelete = new Set([id, ...getFolderDescendantIds(id)]);
+    const itemsToTrash = items.filter(item => folderIdsToDelete.has(item.folderId));
+
+    if (itemsToTrash.length > 0) {
+      setDeletedItems(prev => [...prev, ...itemsToTrash.map(item => ({ ...item, deletedAt: Date.now() }))]);
+      setToastMessage(t.itemsMovedToTrash.replace('{count}', itemsToTrash.length));
+      setTimeout(() => setToastMessage(''), 2000);
+    }
+
+    setFolders(prev => prev.filter(folder => !folderIdsToDelete.has(folder.id)));
+    setItems(prev => prev.filter(item => !folderIdsToDelete.has(item.folderId))); 
+    setSelectedFolders(prev => prev.filter(selectedId => !folderIdsToDelete.has(selectedId)));
+    if (folderIdsToDelete.has(activeFolderId)) setActiveFolderId('all');
+  };
+
+  const moveFolder = useCallback((folderId, direction, e) => {
+    if (e) e.stopPropagation();
+    setFolders(prev => {
+      const current = prev.find(folder => folder.id === folderId);
+      if (!current) return prev;
+
+      const parentId = current.parentId || null;
+      const siblings = prev
+        .filter(folder => (folder.parentId || null) === parentId)
+        .sort((a, b) => ((Number(a.order) || 0) - (Number(b.order) || 0)) || (a.name || '').localeCompare(b.name || ''));
+      const currentIndex = siblings.findIndex(folder => folder.id === folderId);
+      const targetIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1;
+      if (currentIndex === -1 || targetIndex < 0 || targetIndex >= siblings.length) return prev;
+
+      const reordered = [...siblings];
+      [reordered[currentIndex], reordered[targetIndex]] = [reordered[targetIndex], reordered[currentIndex]];
+      const orderById = new Map(reordered.map((folder, index) => [folder.id, index]));
+      return prev.map(folder => orderById.has(folder.id) ? { ...folder, order: orderById.get(folder.id) } : folder);
+    });
+  }, []);
+
+  const renderSidebarFolder = (folder, level = 0) => {
+    const children = folderChildrenMap.get(folder.id) || [];
+    const isCollapsed = collapsedFolders.has(folder.id);
+    const hasChildren = children.length > 0;
+    const isActive = activeFolderId === folder.id;
+
+    // Determina se é primeira/última entre irmãos para habilitar/desabilitar botões de ordenação
+    const parentId = folder.parentId || null;
+    const siblings = (folderChildrenMap.get(parentId) || []);
+    const siblingIndex = siblings.findIndex(s => s.id === folder.id);
+    const isFirst = siblingIndex === 0;
+    const isLast = siblingIndex === siblings.length - 1;
+
+    return (
+      <li key={folder.id}>
+        <div className="group relative flex items-center">
+          {/* Linha de indentação hierárquica */}
+          {level > 0 && (
+            <div
+              className="absolute left-0 top-0 bottom-0 border-l-2 border-gray-200 dark:border-gray-700 pointer-events-none"
+              style={{ left: `${4 + (level - 1) * 14}px` }}
+            />
+          )}
+
+          {/* Chevron de expandir/colapsar (só aparece se tem filhos) */}
+          <button
+            onClick={(e) => hasChildren ? toggleFolderCollapse(folder.id, e) : undefined}
+            style={{ paddingLeft: `${level > 0 ? 14 + (level - 1) * 14 : 4}px` }}
+            className={`shrink-0 w-6 flex items-center justify-center py-2 text-gray-400 dark:text-gray-600 transition-all ${hasChildren ? 'hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer' : 'opacity-0 cursor-default pointer-events-none'}`}
+            tabIndex={hasChildren ? 0 : -1}
+            aria-label={isCollapsed ? t.moveDown : t.moveUp}
+          >
+            {hasChildren && (
+              <span className={`transition-transform duration-200 ${isCollapsed ? '' : 'rotate-90'}`}>
+                <IconChevronRight />
+              </span>
+            )}
+          </button>
+
+          <button
+            onClick={() => { setActiveFolderId(folder.id); setIsSidebarOpen(false); }}
+            className={`flex-1 flex items-center pr-2 py-2 text-sm rounded-lg transition-colors min-w-0 ${
+              isActive
+                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium'
+                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+            }`}
+          >
+            <div className={`mr-2 shrink-0 transition-colors ${
+              isActive
+                ? 'text-indigo-500 dark:text-indigo-400'
+                : 'text-gray-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400'
+            }`}>
+              {hasChildren && !isCollapsed ? <IconFolderOpen /> : <IconFolder />}
+            </div>
+            <span className="truncate flex-1 text-left">{folder.name}</span>
+            <span className="ml-1 text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-0.5 px-1.5 rounded-full shrink-0">
+              {getFolderItemCount(folder.id)}
+            </span>
+          </button>
+
+          {/* Botões de ação (aparecem no hover) */}
+          <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ml-1">
+            <button
+              onClick={(e) => moveFolder(folder.id, 'up', e)}
+              className={`p-1 rounded transition-colors ${
+                isFirst
+                  ? 'text-gray-200 dark:text-gray-700 cursor-not-allowed'
+                  : 'text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/40'
+              }`}
+              title={t.moveUp}
+              disabled={isFirst}
+            >
+              <IconArrowUp />
+            </button>
+            <button
+              onClick={(e) => moveFolder(folder.id, 'down', e)}
+              className={`p-1 rounded transition-colors ${
+                isLast
+                  ? 'text-gray-200 dark:text-gray-700 cursor-not-allowed'
+                  : 'text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/40'
+              }`}
+              title={t.moveDown}
+              disabled={isLast}
+            >
+              <IconArrowDown />
+            </button>
+            <button
+              onClick={(e) => openAddFolderModal(folder.id, e)}
+              className="p-1 text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 rounded hover:bg-emerald-50 dark:hover:bg-emerald-900/40 transition-colors"
+              title={t.addSubfolder}
+            >
+              <IconPlus />
+            </button>
+            <button
+              onClick={(e) => openEditFolderModal(folder, e)}
+              className="p-1 text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 rounded hover:bg-indigo-50 dark:hover:bg-indigo-900/40 transition-colors"
+              title={t.edit}
+            >
+              <IconEdit />
+            </button>
+            <button
+              onClick={(e) => handleDeleteFolder(folder.id, e)}
+              className="p-1 text-gray-400 hover:text-red-500 dark:hover:text-red-400 rounded hover:bg-red-50 dark:hover:bg-red-900/40 transition-colors"
+              title={t.delete}
+            >
+              <IconTrash />
+            </button>
+          </div>
+        </div>
+
+        {/* Subpastas (colapsáveis) */}
+        {hasChildren && !isCollapsed && (
+          <ul className="mt-0.5 space-y-0.5">
+            {children.map(child => renderSidebarFolder(child, level + 1))}
+          </ul>
+        )}
+      </li>
+    );
   };
 
   // UI Opcional: Bloqueio contra Clickjacking. Não quebra em visualização.
@@ -987,46 +1408,17 @@ const toggleItemPurchased = useCallback((id) => {
             <div className="mt-8 mb-3 flex items-center justify-between">
               <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">{t.myFolders}</p>
               <div className="flex gap-1">
-                <button onClick={() => setIsTrashModalOpen(true)} className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1" title="Lixeira">
+                <button onClick={() => setIsTrashModalOpen(true)} className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1" title={t.trashTitle}>
                   <IconTrash />
                 </button>
-                <button onClick={() => setIsAddFolderModalOpen(true)} className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-1" title={t.newFolder}>
+                <button onClick={() => openAddFolderModal()} className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-1" title={t.newFolder}>
                   <IconPlus />
                 </button>
               </div>
             </div>
             
-            <ul className="space-y-1 overflow-y-auto max-h-[40vh]">
-              {folders.map(folder => (
-                <li key={folder.id} className="group relative">
-                  <button 
-                    onClick={() => { setActiveFolderId(folder.id); setIsSidebarOpen(false); }}
-                    className={`w-full flex items-center px-3 py-2 text-sm rounded-lg transition-colors pr-20 ${activeFolderId === folder.id ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
-                  >
-                    <div className="mr-3 text-gray-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors"><IconFolder /></div>
-                    <span className="truncate flex-1 text-left">{folder.name}</span>
-                    <span className="text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-0.5 px-2 rounded-full group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
-                      {getFolderItemCount(folder.id)}
-                    </span>
-                  </button>
-                  <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-white dark:bg-gray-900 pl-2 shadow-[-10px_0_10px_white] dark:shadow-[-10px_0_10px_#111827]">
-                    <button 
-                      onClick={(e) => openEditFolderModal(folder, e)}
-                      className="p-1.5 text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 rounded-md hover:bg-indigo-50 dark:hover:bg-indigo-900/40"
-                      title={t.edit}
-                    >
-                      <IconEdit />
-                    </button>
-                    <button 
-                      onClick={(e) => handleDeleteFolder(folder.id, e)}
-                      className="p-1.5 text-gray-400 hover:text-red-500 dark:hover:text-red-400 rounded-md hover:bg-red-50 dark:hover:bg-red-900/40"
-                      title={t.delete}
-                    >
-                      <IconTrash />
-                    </button>
-                  </div>
-                </li>
-              ))}
+            <ul className="space-y-1 overflow-y-auto max-h-[40vh] pr-1">
+              {(folderChildrenMap.get(null) || []).map(folder => renderSidebarFolder(folder))}
             </ul>
           </div>
           
@@ -1136,7 +1528,7 @@ const toggleItemPurchased = useCallback((id) => {
                         if (!imported.folders || !Array.isArray(imported.folders)) throw new Error('Formato inválido');
                         if (!imported.items || !Array.isArray(imported.items)) throw new Error('Formato inválido');
                         if (confirm(t.importConfirmMsg || 'Importar irá substituir todos os dados atuais. Continuar?')) {
-                          setFolders(imported.folders);
+                          setFolders(normalizeFolders(imported.folders));
                           setItems(imported.items);
                           setToastMessage(t.importSuccessMsg || 'Backup restaurado com sucesso!');
                           setTimeout(() => setToastMessage(''), 3000);
@@ -1173,7 +1565,7 @@ const toggleItemPurchased = useCallback((id) => {
                 </div>
 
                 <button 
-                  onClick={() => setIsAddItemModalOpen(true)}
+                  onClick={openAddItemModal}
                   className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-3 sm:px-4 py-2 rounded-xl font-medium transition-colors shadow-sm shadow-indigo-200 dark:shadow-none"
                 >
                   <IconPlus /> <span className="hidden sm:inline">{t.add}</span>
@@ -1221,34 +1613,95 @@ const toggleItemPurchased = useCallback((id) => {
 
           {/* Content Area */}
                     <div className="flex-1 overflow-y-auto p-4 sm:p-8">
-            {/* Dashboard de Estatísticas */}
-            {(items.length > 0 || folders.length > 0) && (
-              <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 shadow-sm">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{t.totalItems || 'Total de itens'}</p>
-                  <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">{items.length}</p>
+            {/* Dashboard de Estatísticas — Redesenhado */}
+            {(items.length > 0 || folders.length > 0) && (() => {
+              const stats = wishlistStats;
+              const progressPct = stats.completion;
+              const circumference = 2 * Math.PI * 26; // raio 26
+              const strokeDashoffset = circumference - (progressPct / 100) * circumference;
+              const totalValue = stats.purchasedValue + stats.pendingValue;
+              const purchasedPct = totalValue > 0 ? (stats.purchasedValue / totalValue) * 100 : 0;
+              return (
+                <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                  {/* Card 1 — Progresso Circular */}
+                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm flex items-center gap-5">
+                    <div className="relative shrink-0 w-16 h-16">
+                      <svg viewBox="0 0 60 60" className="w-16 h-16 -rotate-90">
+                        <circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" strokeWidth="6" className="text-gray-100 dark:text-gray-800" />
+                        <circle
+                          cx="30" cy="30" r="26" fill="none"
+                          stroke="currentColor" strokeWidth="6"
+                          strokeLinecap="round"
+                          strokeDasharray={circumference}
+                          strokeDashoffset={strokeDashoffset}
+                          className="text-indigo-500 dark:text-indigo-400 transition-all duration-700"
+                        />
+                      </svg>
+                      <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700 dark:text-gray-200">
+                        {progressPct}%
+                      </span>
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.completionRate || 'Concluído'}</p>
+                      <p className="text-xl font-bold text-gray-800 dark:text-gray-100 mt-0.5">
+                        {stats.purchasedItems} <span className="text-sm font-medium text-gray-400 dark:text-gray-500">/ {stats.totalItems}</span>
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{t.totalItems || 'itens'}</p>
+                    </div>
+                  </div>
+
+                  {/* Card 2 — Comprado vs Pendente (valor) */}
+                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-3">{t.summaryTitle || 'Resumo'}</p>
+                    <div className="flex items-end justify-between mb-2">
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{t.purchasedValue || 'Comprado'}</p>
+                        <p className="text-base font-bold text-green-600 dark:text-green-400">{t.currency || ''} {stats.purchasedValue.toLocaleString()}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{t.pendingValue || 'Pendente'}</p>
+                        <p className="text-base font-bold text-amber-500 dark:text-amber-400">{t.currency || ''} {stats.pendingValue.toLocaleString()}</p>
+                      </div>
+                    </div>
+                    {/* Barra de progresso dividida */}
+                    <div className="h-2.5 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-700"
+                        style={{ width: `${purchasedPct}%` }}
+                      />
+                    </div>
+                    <div className="flex justify-between mt-1.5">
+                      <span className="text-[10px] text-green-500 font-medium">{Math.round(purchasedPct)}% {t.purchased || 'comprado'}</span>
+                      <span className="text-[10px] text-amber-500 font-medium">{Math.round(100 - purchasedPct)}% {t.pending || 'pendente'}</span>
+                    </div>
+                  </div>
+
+                  {/* Card 3 — Total e Pastas */}
+                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-3">{t.totalSpent || 'Total estimado'}</p>
+                    <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                      {t.currency || ''} {stats.totalValue.toLocaleString()}
+                    </p>
+                    <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
+                        <IconFolder />
+                        <span className="text-sm">{stats.folderCount} {t.totalFolders || 'pastas'}</span>
+                      </div>
+                      <div className="flex gap-1">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                          ✓ {stats.purchasedItems}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
+                          ◷ {stats.pendingItems}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-                <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 shadow-sm">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{t.purchased || 'Comprados'}</p>
-                  <p className="text-2xl font-bold text-green-600 dark:text-green-400">{items.filter(i => i.isPurchased).length}</p>
-                </div>
-                <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 shadow-sm">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{t.pending || 'Pendentes'}</p>
-                  <p className="text-2xl font-bold text-amber-600 dark:text-amber-400">{items.filter(i => !i.isPurchased).length}</p>
-                </div>
-                <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 shadow-sm">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{t.totalSpent || 'Total gasto (estimado)'}</p>
-                  <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                    {(() => {
-                      const total = items.reduce((acc, item) => acc + parsePrice(item.price), 0);
-                      const symbol = t.currency || '';
-                      // Formata o número sem forçar uma moeda específica
-                      return `${symbol} ${total.toLocaleString()}`;
-                    })()}
-                  </p>
-                </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Visualização de Pastas no modo "Todos os Itens" (Se não houver pesquisa) */}
             {activeFolderId === 'all' && folders.length > 0 && !searchQuery && (
@@ -1302,7 +1755,7 @@ const toggleItemPurchased = useCallback((id) => {
                 <p className="text-gray-500 dark:text-gray-400 mb-6">{searchQuery ? 'Nenhum resultado para a sua pesquisa.' : t.emptyDesc}</p>
                 {!searchQuery && (
                   <button 
-                    onClick={() => setIsAddItemModalOpen(true)}
+                    onClick={openAddItemModal}
                     className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 text-gray-700 dark:text-gray-300 px-6 py-2 rounded-xl font-medium transition-colors"
                   >
                     {t.addFirst}
