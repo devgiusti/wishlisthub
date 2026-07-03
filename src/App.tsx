@@ -47,7 +47,8 @@ const translations = {
     importSuccessMsg: "Backup restaurado com sucesso!",
     invalidFileMsg: "Arquivo inválido",
     noItemsInTrash: "Nenhum item na lixeira",
-    langNames: { pt: 'Português', en: 'Inglês', es: 'Espanhol', fr: 'Francês', it: 'Italiano', de: 'Alemão', zh: 'Chinês', ja: 'Japonês', ru: 'Russo' }
+    langNames: { pt: 'Português', en: 'Inglês', es: 'Espanhol', fr: 'Francês', it: 'Italiano', de: 'Alemão', zh: 'Chinês', ja: 'Japonês', ru: 'Russo' },
+    imgDragDrop: 'Arraste uma foto ou clique para selecionar'
   },
   en: {
     appTitle: "WishlistHub", menu: "Menu", allItems: "All Items", myFolders: "My Folders",
@@ -83,7 +84,8 @@ const translations = {
     importSuccessMsg: "Backup restored successfully!",
     invalidFileMsg: "Invalid file",
     noItemsInTrash: "No items in trash",
-    langNames: { pt: 'Portuguese', en: 'English', es: 'Spanish', fr: 'French', it: 'Italian', de: 'German', zh: 'Chinese', ja: 'Japanese', ru: 'Russian' }
+    langNames: { pt: 'Portuguese', en: 'English', es: 'Spanish', fr: 'French', it: 'Italian', de: 'German', zh: 'Chinese', ja: 'Japanese', ru: 'Russian' },
+    imgDragDrop: 'Drag a photo or click to select'
   },
   es: {
     appTitle: "WishlistHub", menu: "Menú", allItems: "Todos los Artículos", myFolders: "Mis Carpetas",
@@ -130,7 +132,8 @@ const translations = {
     importSuccessMsg: "¡Copia de seguridad restaurada con éxito!",
     invalidFileMsg: "Archivo inválido",
     noItemsInTrash: "No hay artículos en la papelera",
-    langNames: { pt: 'Portugués', en: 'Inglés', es: 'Español', fr: 'Francés', it: 'Italiano', de: 'Alemán', zh: 'Chino', ja: 'Japonés', ru: 'Ruso' }
+    langNames: { pt: 'Portugués', en: 'Inglés', es: 'Español', fr: 'Francés', it: 'Italiano', de: 'Alemán', zh: 'Chino', ja: 'Japonés', ru: 'Ruso' },
+    imgDragDrop: 'Arrastra una foto o haz clic para seleccionar'
   },
   fr: {
     appTitle: "WishlistHub", menu: "Menu", allItems: "Tous les Articles", myFolders: "Mes Dossiers",
@@ -177,7 +180,8 @@ const translations = {
     importSuccessMsg: "Sauvegarde restaurée avec succès !",
     invalidFileMsg: "Fichier invalide",
     noItemsInTrash: "Aucun article dans la corbeille",
-    langNames: { pt: 'Portugais', en: 'Anglais', es: 'Espagnol', fr: 'Français', it: 'Italien', de: 'Allemand', zh: 'Chinois', ja: 'Japonais', ru: 'Russe' }
+    langNames: { pt: 'Portugais', en: 'Anglais', es: 'Espagnol', fr: 'Français', it: 'Italien', de: 'Allemand', zh: 'Chinois', ja: 'Japonais', ru: 'Russe' },
+    imgDragDrop: "Faites glisser une photo ou cliquez pour sélectionner"
   },
   it: {
     appTitle: "WishlistHub", menu: "Menu", allItems: "Tutti gli Oggetti", myFolders: "Le Mie Cartelle",
@@ -224,7 +228,8 @@ const translations = {
     importSuccessMsg: "Backup ripristinato con successo!",
     invalidFileMsg: "File non valido",
     noItemsInTrash: "Nessun oggetto nel cestino",
-    langNames: { pt: 'Portoghese', en: 'Inglese', es: 'Spagnolo', fr: 'Francese', it: 'Italiano', de: 'Tedesco', zh: 'Cinese', ja: 'Giapponese', ru: 'Russo' }
+    langNames: { pt: 'Portoghese', en: 'Inglese', es: 'Spagnolo', fr: 'Francese', it: 'Italiano', de: 'Tedesco', zh: 'Cinese', ja: 'Giapponese', ru: 'Russo' },
+    imgDragDrop: 'Trascina una foto o clicca per selezionare'
   },
   de: {
     appTitle: "WishlistHub", menu: "Menü", allItems: "Alle Artikel", myFolders: "Meine Ordner",
@@ -271,7 +276,8 @@ const translations = {
     importSuccessMsg: "Backup erfolgreich wiederhergestellt!",
     invalidFileMsg: "Ungültige Datei",
     noItemsInTrash: "Keine Artikel im Papierkorb",
-    langNames: { pt: 'Portugiesisch', en: 'Englisch', es: 'Spanisch', fr: 'Französisch', it: 'Italienisch', de: 'Deutsch', zh: 'Chinesisch', ja: 'Japanisch', ru: 'Russisch' }
+    langNames: { pt: 'Portugiesisch', en: 'Englisch', es: 'Spanisch', fr: 'Französisch', it: 'Italienisch', de: 'Deutsch', zh: 'Chinesisch', ja: 'Japanisch', ru: 'Russisch' },
+    imgDragDrop: 'Foto hierher ziehen oder klicken zum Auswählen'
   },
   zh: {
     appTitle: "WishlistHub", menu: "菜单", allItems: "所有物品", myFolders: "我的文件夹",
@@ -318,7 +324,8 @@ const translations = {
     importSuccessMsg: "备份恢复成功！",
     invalidFileMsg: "无效文件",
     noItemsInTrash: "回收站中没有物品",
-    langNames: { pt: '葡萄牙语', en: '英语', es: '西班牙语', fr: '法语', it: '意大利语', de: '德语', zh: '中文', ja: '日语', ru: '俄语' }
+    langNames: { pt: '葡萄牙语', en: '英语', es: '西班牙语', fr: '法语', it: '意大利语', de: '德语', zh: '中文', ja: '日语', ru: '俄语' },
+    imgDragDrop: '拖拽图片或点击选择'
   },
   ja: {
     appTitle: "WishlistHub", menu: "メニュー", allItems: "すべてのアイテム", myFolders: "マイフォルダ",
@@ -412,7 +419,8 @@ const translations = {
     importSuccessMsg: "Резервная копия восстановлена!",
     invalidFileMsg: "Неверный файл",
     noItemsInTrash: "Нет элементов в корзине",
-    langNames: { pt: 'Португальский', en: 'Английский', es: 'Испанский', fr: 'Французский', it: 'Итальянский', de: 'Немецкий', zh: 'Китайский', ja: 'Японский', ru: 'Русский' }
+    langNames: { pt: 'Португальский', en: 'Английский', es: 'Испанский', fr: 'Французский', it: 'Итальянский', de: 'Немецкий', zh: 'Китайский', ja: 'Японский', ru: 'Русский' },
+    imgDragDrop: 'Перетащите фото или нажмите для выбора'
   }
 };
 
@@ -1003,7 +1011,7 @@ export default function App() {
   const [itemToDelete, setItemToDelete] = useState(null);
 
   // --- Formulários ---
-  const [newItemForm, setNewItemForm] = useState({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[safeGetStorage('lang','pt')] || 'BRL' });
+  const [newItemForm, setNewItemForm] = useState({ title: '', description: '', url: '', imageUrl: '', imageDataUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[safeGetStorage('lang','pt')] || 'BRL' });
   const [newFolderName, setNewFolderName] = useState('');
   const [newFolderParentId, setNewFolderParentId] = useState('');
   const [editingFolderId, setEditingFolderId] = useState(null);
@@ -1211,9 +1219,10 @@ export default function App() {
     // JS Fallback: Garante que os limites não sejam burlados
     const titleSafe = (newItemForm.title || '').substring(0, 100);
     const descSafe = (newItemForm.description || '').substring(0, 1000);
-    const priceSafe = newItemForm.priceValue !== ''
-      ? `${CURRENCY_SYMBOLS[newItemForm.priceCurrency] || ''} ${Number(newItemForm.priceValue).toLocaleString(undefined, { maximumFractionDigits: 2 })}`.trim()
-      : (newItemForm.price || '').substring(0, 30);
+    const priceSafe = newItemForm.priceValue !== '' && !isNaN(parseFloat(newItemForm.priceValue))
+      ? `${CURRENCY_SYMBOLS[newItemForm.priceCurrency] || ''} ${parseFloat(newItemForm.priceValue).toLocaleString(undefined, { maximumFractionDigits: 2 })}`.trim()
+      : '';
+    const resolvedImageUrl = newItemForm.imageDataUrl || getSafeImageUrl(newItemForm.imageUrl);
     const defaultFolderId = activeFolderId !== 'all'
       ? activeFolderId
       : (flatFolderOptions[0]?.folder.id || 'unassigned');
@@ -1223,10 +1232,11 @@ export default function App() {
       title: titleSafe,
       description: descSafe,
       price: priceSafe,
-      priceValue: newItemForm.priceValue !== '' ? Number(newItemForm.priceValue) : undefined,
-      priceCurrency: newItemForm.priceValue !== '' ? newItemForm.priceCurrency : undefined,
+      priceValue: newItemForm.priceValue !== '' && !isNaN(parseFloat(newItemForm.priceValue)) ? parseFloat(newItemForm.priceValue) : undefined,
+      priceCurrency: newItemForm.priceValue !== '' && !isNaN(parseFloat(newItemForm.priceValue)) ? newItemForm.priceCurrency : undefined,
       url: getSafeUrl(newItemForm.url),
-      imageUrl: getSafeImageUrl(newItemForm.imageUrl), // Hardening para Imagens Externas
+      imageUrl: resolvedImageUrl,
+      imageDataUrl: newItemForm.imageDataUrl || undefined,
     };
 
     if (editingItemId) {
@@ -1243,8 +1253,8 @@ export default function App() {
       setItems(prev => [newItem, ...prev]);
       setIsAddItemModalOpen(false);
     }
-    setNewItemForm({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[safeGetStorage('lang','pt')] || 'BRL' });
-  }, [newItemForm, editingItemId, activeFolderId, flatFolderOptions]);
+    setNewItemForm({ title: '', description: '', url: '', imageUrl: '', imageDataUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[lang] || 'BRL' });
+  }, [newItemForm, editingItemId, activeFolderId, flatFolderOptions, lang]);
 
 const toggleItemPurchased = useCallback((id) => {
   setItems(prev => {
@@ -1260,7 +1270,7 @@ const toggleItemPurchased = useCallback((id) => {
   const openEditModal = (item) => {
     setNewItemForm({
       title: item.title || '', description: item.description || '',
-      url: item.url || '', imageUrl: item.imageUrl || '',
+      url: item.url || '', imageUrl: item.imageUrl || '', imageDataUrl: item.imageDataUrl || '',
       folderId: item.folderId || '', price: item.price || '',
       priceValue: item.priceValue !== undefined ? String(item.priceValue) : '',
       priceCurrency: item.priceCurrency || DEFAULT_CURRENCY_BY_LANG[lang] || 'BRL'
@@ -1995,7 +2005,7 @@ const toggleItemPurchased = useCallback((id) => {
               }>
                 {processedItems.map(item => {
                   const isSelected = selectedItems.includes(item.id);
-                  const safeImg = getSafeImageUrl(item.imageUrl);
+                  const safeImg = item.imageDataUrl || getSafeImageUrl(item.imageUrl);
                   
                   return (
                     <div 
@@ -2091,18 +2101,18 @@ const toggleItemPurchased = useCallback((id) => {
               <div className="flex justify-between items-center p-5 border-b border-gray-100 dark:border-gray-800">
                 <h2 className="text-xl font-bold text-gray-800 dark:text-white">{editingItemId ? t.editWish : t.addWish}</h2>
                 <button 
-                  onClick={() => { 
+                 onClick={() => { 
                     setIsAddItemModalOpen(false); 
                     setIsEditItemModalOpen(false); 
                     setEditingItemId(null); 
-                    setNewItemForm({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '' }); 
+                    setNewItemForm({ title: '', description: '', url: '', imageUrl: '', imageDataUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[lang] || 'BRL' }); 
                   }} 
                   className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                 >
                   <IconX />
                 </button>
               </div>
-              <form onSubmit={handleAddItem} className="p-5 space-y-4">
+              <form onSubmit={handleAddItem} className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.urlLabel}</label>
                   <input 
@@ -2121,46 +2131,126 @@ const toggleItemPurchased = useCallback((id) => {
                     value={newItemForm.title} onChange={e => setNewItemForm({...newItemForm, title: e.target.value})}
                   />
                 </div>
+
+                {/* Campo de Imagem: URL + Upload de Arquivo / Drag-and-Drop */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.imgLabel}</label>
-                  <input 
-                    type="url"
-                    placeholder={t.imgPlaceholder} 
-                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-                    value={newItemForm.imageUrl} onChange={e => setNewItemForm({...newItemForm, imageUrl: e.target.value})}
-                  />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.priceLabel}</label>
-                    <input 
-                      type="text" maxLength={30}
-                      placeholder={t.pricePlaceholder} 
-                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-                      value={newItemForm.price || ''} onChange={handlePriceChange}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.folderLabel}</label>
-                    <select 
-                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all appearance-none"
-                      value={newItemForm.folderId || (folders.length > 0 ? folders[0].id : '')} 
-                      onChange={e => setNewItemForm({...newItemForm, folderId: e.target.value})}
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{t.imgLabel}</label>
+                  {/* Preview se já há imagem */}
+                  {(newItemForm.imageDataUrl || newItemForm.imageUrl) && (
+                    <div className="relative mb-2 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                      <img
+                        src={newItemForm.imageDataUrl || newItemForm.imageUrl}
+                        alt="preview"
+                        className="w-full h-28 object-cover"
+                        onError={e => { e.currentTarget.style.display = 'none'; }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setNewItemForm(prev => ({ ...prev, imageUrl: '', imageDataUrl: '' }))}
+                        className="absolute top-1.5 right-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full p-1 transition-colors"
+                      >
+                        <IconX />
+                      </button>
+                    </div>
+                  )}
+                  {/* Drag-and-Drop Zone */}
+                  {!newItemForm.imageDataUrl && !newItemForm.imageUrl && (
+                    <label
+                      htmlFor="img-file-upload"
+                      className="flex flex-col items-center justify-center gap-1.5 w-full py-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl cursor-pointer hover:border-indigo-400 dark:hover:border-indigo-500 bg-gray-50 dark:bg-gray-800 transition-colors"
+                      onDragOver={e => { e.preventDefault(); e.currentTarget.classList.add('border-indigo-400', 'bg-indigo-50', 'dark:bg-indigo-900/20'); }}
+                      onDragLeave={e => { e.currentTarget.classList.remove('border-indigo-400', 'bg-indigo-50', 'dark:bg-indigo-900/20'); }}
+                      onDrop={e => {
+                        e.preventDefault();
+                        e.currentTarget.classList.remove('border-indigo-400', 'bg-indigo-50', 'dark:bg-indigo-900/20');
+                        const file = e.dataTransfer.files?.[0];
+                        if (file && file.type.startsWith('image/')) {
+                          const reader = new FileReader();
+                          reader.onload = ev => setNewItemForm(prev => ({ ...prev, imageDataUrl: ev.target?.result as string, imageUrl: '' }));
+                          reader.readAsDataURL(file);
+                        }
+                      }}
                     >
-                      {folders.map(f => (
-                        <option key={f.id} value={f.id}>{f.name}</option>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 text-center px-2">
+                        {t.imgDragDrop || 'Arraste uma foto ou clique para selecionar'}
+                      </span>
+                      <input
+                        id="img-file-upload"
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={e => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            const reader = new FileReader();
+                            reader.onload = ev => setNewItemForm(prev => ({ ...prev, imageDataUrl: ev.target?.result as string, imageUrl: '' }));
+                            reader.readAsDataURL(file);
+                          }
+                        }}
+                      />
+                    </label>
+                  )}
+                  {/* Campo de URL de imagem (alternativo) */}
+                  {!newItemForm.imageDataUrl && (
+                    <input 
+                      type="url"
+                      placeholder={t.imgPlaceholder} 
+                      className="w-full mt-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                      value={newItemForm.imageUrl} onChange={e => setNewItemForm({...newItemForm, imageUrl: e.target.value, imageDataUrl: ''})}
+                    />
+                  )}
+                </div>
+
+                {/* Valor + Seletor de Moeda */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+                    {t.priceLabel || 'Valor (Opcional)'}
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="number" min="0" step="any"
+                      placeholder="0.00"
+                      className="flex-1 min-w-0 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                      value={newItemForm.priceValue}
+                      onChange={e => setNewItemForm({...newItemForm, priceValue: e.target.value})}
+                    />
+                    <select
+                      className="shrink-0 px-2.5 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm cursor-pointer"
+                      value={newItemForm.priceCurrency}
+                      onChange={e => setNewItemForm({...newItemForm, priceCurrency: e.target.value})}
+                    >
+                      {SUPPORTED_CURRENCIES.map(c => (
+                        <option key={c} value={c}>{CURRENCY_SYMBOLS[c]} {c}</option>
                       ))}
                     </select>
                   </div>
                 </div>
+
+                {/* Pasta */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.folderLabel}</label>
+                  <select 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all appearance-none"
+                    value={newItemForm.folderId || (flatFolderOptions[0]?.folder.id || '')} 
+                    onChange={e => setNewItemForm({...newItemForm, folderId: e.target.value})}
+                  >
+                    {flatFolderOptions.map(({ folder, label }) => (
+                      <option key={folder.id} value={folder.id}>{label}</option>
+                    ))}
+                  </select>
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.descLabel}</label>
                   <textarea 
-                    rows="2" maxLength={1000}
+                    rows={2} maxLength={1000}
                     placeholder={t.descPlaceholder} 
                     className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all resize-none"
                     value={newItemForm.description} onChange={e => setNewItemForm({...newItemForm, description: e.target.value})}
-                  ></textarea>
+                  />
                 </div>
                 <div className="pt-2">
                   <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl transition-colors">
