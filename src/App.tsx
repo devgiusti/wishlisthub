@@ -422,63 +422,81 @@ const translationExtensions = {
     folderParentLabel: "Dentro de", rootFolder: "Pasta principal", subfoldersCount: "Subpastas", addSubfolder: "Criar subpasta", moveUp: "Mover para cima", moveDown: "Mover para baixo",
     noSearchResults: "Nenhum resultado para a sua pesquisa.", deletedAt: "Excluído em", itemsMovedToTrash: "{count} itens movidos para a lixeira", itemMovedToTrash: "Item movido para a lixeira",
     trashTitle: "Lixeira", restore: "Restaurar", emptyTrash: "Esvaziar lixeira", confirmEmptyTrash: "Esvaziar lixeira permanentemente?", trashEmptied: "Lixeira esvaziada", itemRestored: "Item restaurado",
-    totalItems: "Total de itens", pending: "Pendentes", totalSpent: "Total gasto estimado", currency: "R$"
+    totalItems: "Total de itens", pending: "Pendentes", totalSpent: "Total gasto estimado", currency: "R$",
+    displayCurrency: "Exibir em", approxRates: "Valores estimados (câmbio aproximado)",
+    customTheme: "Personalizar Tema", themeAccent: "Cor de Destaque", themeBg: "Cor de Fundo", themeFg: "Cor do Texto", themePresets: "Predefinições", resetTheme: "Restaurar Padrão", priceCurrencyLabel: "Moeda"
   },
   en: {
     summaryTitle: "Wishlist summary", completionRate: "Completed", purchasedValue: "Purchased value", pendingValue: "Pending value", totalFolders: "Folders",
     folderParentLabel: "Inside", rootFolder: "Main folder", subfoldersCount: "Subfolders", addSubfolder: "Create subfolder", moveUp: "Move up", moveDown: "Move down",
     noSearchResults: "No results for your search.", deletedAt: "Deleted at", itemsMovedToTrash: "{count} items moved to trash", itemMovedToTrash: "Item moved to trash",
     trashTitle: "Trash", restore: "Restore", emptyTrash: "Empty trash", confirmEmptyTrash: "Empty trash permanently?", trashEmptied: "Trash emptied", itemRestored: "Item restored",
-    totalItems: "Total items", pending: "Pending", totalSpent: "Estimated total spent", currency: "$"
+    totalItems: "Total items", pending: "Pending", totalSpent: "Estimated total spent", currency: "$",
+    displayCurrency: "Display as", approxRates: "Estimated values (approximate exchange rates)",
+    customTheme: "Customize Theme", themeAccent: "Accent Color", themeBg: "Background", themeFg: "Text Color", themePresets: "Presets", resetTheme: "Reset to Default", priceCurrencyLabel: "Currency"
   },
   es: {
     summaryTitle: "Resumen de wishlist", completionRate: "Completado", purchasedValue: "Valor comprado", pendingValue: "Valor pendiente", totalFolders: "Carpetas",
     folderParentLabel: "Dentro de", rootFolder: "Carpeta principal", subfoldersCount: "Subcarpetas", addSubfolder: "Crear subcarpeta", moveUp: "Mover arriba", moveDown: "Mover abajo",
     noSearchResults: "No hay resultados para tu búsqueda.", deletedAt: "Eliminado el", itemsMovedToTrash: "{count} artículos movidos a la papelera", itemMovedToTrash: "Artículo movido a la papelera",
     trashTitle: "Papelera", restore: "Restaurar", emptyTrash: "Vaciar papelera", confirmEmptyTrash: "¿Vaciar la papelera permanentemente?", trashEmptied: "Papelera vaciada", itemRestored: "Artículo restaurado",
-    totalItems: "Total de artículos", pending: "Pendientes", totalSpent: "Gasto total estimado", currency: "€"
+    totalItems: "Total de artículos", pending: "Pendientes", totalSpent: "Gasto total estimado", currency: "€",
+    displayCurrency: "Mostrar en", approxRates: "Valores estimados (tasas aproximadas)",
+    customTheme: "Personalizar Tema", themeAccent: "Color de Énfasis", themeBg: "Fondo", themeFg: "Color de Texto", themePresets: "Predefinidos", resetTheme: "Restablecer", priceCurrencyLabel: "Moneda"
   },
   fr: {
     summaryTitle: "Résumé de la wishlist", completionRate: "Terminé", purchasedValue: "Valeur achetée", pendingValue: "Valeur en attente", totalFolders: "Dossiers",
     folderParentLabel: "Dans", rootFolder: "Dossier principal", subfoldersCount: "Sous-dossiers", addSubfolder: "Créer un sous-dossier", moveUp: "Déplacer vers le haut", moveDown: "Déplacer vers le bas",
     noSearchResults: "Aucun résultat pour votre recherche.", deletedAt: "Supprimé le", itemsMovedToTrash: "{count} articles déplacés vers la corbeille", itemMovedToTrash: "Article déplacé vers la corbeille",
     trashTitle: "Corbeille", restore: "Restaurer", emptyTrash: "Vider la corbeille", confirmEmptyTrash: "Vider définitivement la corbeille ?", trashEmptied: "Corbeille vidée", itemRestored: "Article restauré",
-    totalItems: "Total d'articles", pending: "En attente", totalSpent: "Dépense totale estimée", currency: "€"
+    totalItems: "Total d'articles", pending: "En attente", totalSpent: "Dépense totale estimée", currency: "€",
+    displayCurrency: "Afficher en", approxRates: "Valeurs estimées (taux approximatifs)",
+    customTheme: "Personnaliser le Thème", themeAccent: "Couleur d'Accentuation", themeBg: "Arrière-plan", themeFg: "Couleur du Texte", themePresets: "Préréglages", resetTheme: "Réinitialiser", priceCurrencyLabel: "Devise"
   },
   it: {
     summaryTitle: "Riepilogo wishlist", completionRate: "Completato", purchasedValue: "Valore acquistato", pendingValue: "Valore in attesa", totalFolders: "Cartelle",
     folderParentLabel: "Dentro", rootFolder: "Cartella principale", subfoldersCount: "Sottocartelle", addSubfolder: "Crea sottocartella", moveUp: "Sposta su", moveDown: "Sposta giù",
     noSearchResults: "Nessun risultato per la tua ricerca.", deletedAt: "Eliminato il", itemsMovedToTrash: "{count} articoli spostati nel cestino", itemMovedToTrash: "Articolo spostato nel cestino",
     trashTitle: "Cestino", restore: "Ripristina", emptyTrash: "Svuota cestino", confirmEmptyTrash: "Svuotare definitivamente il cestino?", trashEmptied: "Cestino svuotato", itemRestored: "Articolo ripristinato",
-    totalItems: "Totale articoli", pending: "In attesa", totalSpent: "Spesa totale stimata", currency: "€"
+    totalItems: "Totale articoli", pending: "In attesa", totalSpent: "Spesa totale stimata", currency: "€",
+    displayCurrency: "Mostra in", approxRates: "Valori stimati (tassi approssimativi)",
+    customTheme: "Personalizza Tema", themeAccent: "Colore Accento", themeBg: "Sfondo", themeFg: "Colore Testo", themePresets: "Predefiniti", resetTheme: "Ripristina Predefiniti", priceCurrencyLabel: "Valuta"
   },
   de: {
     summaryTitle: "Wishlist-Übersicht", completionRate: "Abgeschlossen", purchasedValue: "Gekaufter Wert", pendingValue: "Ausstehender Wert", totalFolders: "Ordner",
     folderParentLabel: "In", rootFolder: "Hauptordner", subfoldersCount: "Unterordner", addSubfolder: "Unterordner erstellen", moveUp: "Nach oben verschieben", moveDown: "Nach unten verschieben",
     noSearchResults: "Keine Ergebnisse für Ihre Suche.", deletedAt: "Gelöscht am", itemsMovedToTrash: "{count} Artikel in den Papierkorb verschoben", itemMovedToTrash: "Artikel in den Papierkorb verschoben",
     trashTitle: "Papierkorb", restore: "Wiederherstellen", emptyTrash: "Papierkorb leeren", confirmEmptyTrash: "Papierkorb dauerhaft leeren?", trashEmptied: "Papierkorb geleert", itemRestored: "Artikel wiederhergestellt",
-    totalItems: "Artikel gesamt", pending: "Ausstehend", totalSpent: "Geschätzte Gesamtausgabe", currency: "€"
+    totalItems: "Artikel gesamt", pending: "Ausstehend", totalSpent: "Geschätzte Gesamtausgabe", currency: "€",
+    displayCurrency: "Anzeigen als", approxRates: "Geschätzte Werte (unge fähre Kurse)",
+    customTheme: "Theme anpassen", themeAccent: "Akzentfarbe", themeBg: "Hintergrund", themeFg: "Textfarbe", themePresets: "Voreinstellungen", resetTheme: "Standard wiederherstellen", priceCurrencyLabel: "Währung"
   },
   zh: {
     summaryTitle: "愿望清单摘要", completionRate: "已完成", purchasedValue: "已购金额", pendingValue: "待购金额", totalFolders: "文件夹",
     folderParentLabel: "位于", rootFolder: "主文件夹", subfoldersCount: "子文件夹", addSubfolder: "创建子文件夹", moveUp: "上移", moveDown: "下移",
     noSearchResults: "未找到匹配结果。", deletedAt: "删除时间", itemsMovedToTrash: "{count} 个物品已移至回收站", itemMovedToTrash: "物品已移至回收站",
     trashTitle: "回收站", restore: "恢复", emptyTrash: "清空回收站", confirmEmptyTrash: "永久清空回收站？", trashEmptied: "回收站已清空", itemRestored: "物品已恢复",
-    totalItems: "物品总数", pending: "待处理", totalSpent: "预计总支出", currency: "¥"
+    totalItems: "物品总数", pending: "待处理", totalSpent: "预计总支出", currency: "¥",
+    displayCurrency: "显示为", approxRates: "估算值（汇率为近似值）",
+    customTheme: "自定义主题", themeAccent: "强调色", themeBg: "背景", themeFg: "文字颜色", themePresets: "预设", resetTheme: "恢复默认", priceCurrencyLabel: "货币"
   },
   ja: {
     summaryTitle: "ウィッシュリスト概要", completionRate: "完了", purchasedValue: "購入済み金額", pendingValue: "保留中の金額", totalFolders: "フォルダ",
     folderParentLabel: "保存先", rootFolder: "メインフォルダ", subfoldersCount: "サブフォルダ", addSubfolder: "サブフォルダを作成", moveUp: "上へ移動", moveDown: "下へ移動",
     noSearchResults: "検索結果がありません。", deletedAt: "削除日時", itemsMovedToTrash: "{count} 件のアイテムをゴミ箱へ移動しました", itemMovedToTrash: "アイテムをゴミ箱へ移動しました",
     trashTitle: "ゴミ箱", restore: "復元", emptyTrash: "ゴミ箱を空にする", confirmEmptyTrash: "ゴミ箱を完全に空にしますか？", trashEmptied: "ゴミ箱を空にしました", itemRestored: "アイテムを復元しました",
-    totalItems: "アイテム総数", pending: "保留中", totalSpent: "推定総支出", currency: "¥"
+    totalItems: "アイテム総数", pending: "保留中", totalSpent: "推定総支出", currency: "¥",
+    displayCurrency: "表示通貨", approxRates: "概算値（為替レートは近似値）",
+    customTheme: "テーマをカスタマイズ", themeAccent: "アクセントカラー", themeBg: "背景色", themeFg: "テキスト色", themePresets: "プリセット", resetTheme: "デフォルトに戻す", priceCurrencyLabel: "通貨"
   },
   ru: {
     summaryTitle: "Сводка wishlist", completionRate: "Готово", purchasedValue: "Стоимость купленных", pendingValue: "Стоимость ожидающих", totalFolders: "Папки",
     folderParentLabel: "Внутри", rootFolder: "Главная папка", subfoldersCount: "Подпапки", addSubfolder: "Создать подпапку", moveUp: "Переместить вверх", moveDown: "Переместить вниз",
     noSearchResults: "По вашему запросу ничего не найдено.", deletedAt: "Удалено", itemsMovedToTrash: "{count} элементов перемещено в корзину", itemMovedToTrash: "Элемент перемещён в корзину",
     trashTitle: "Корзина", restore: "Восстановить", emptyTrash: "Очистить корзину", confirmEmptyTrash: "Очистить корзину навсегда?", trashEmptied: "Корзина очищена", itemRestored: "Элемент восстановлен",
-    totalItems: "Всего предметов", pending: "Ожидают", totalSpent: "Оценка общих расходов", currency: "₽"
+    totalItems: "Всего предметов", pending: "Ожидают", totalSpent: "Оценка общих расходов", currency: "₽",
+    displayCurrency: "Отображать в", approxRates: "Оценочные значения (приблизительный курс)",
+    customTheme: "Настроить тему", themeAccent: "Цвет акцента", themeBg: "Фон", themeFg: "Цвет текста", themePresets: "Предустановки", resetTheme: "Сбросить", priceCurrencyLabel: "Валюта"
   }
 };
 
@@ -511,6 +529,13 @@ const IconWarning = React.memo(() => <svg xmlns="http://www.w3.org/2000/svg" wid
 const IconStar = React.memo(() => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+));
+const IconPalette = React.memo(() => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+    <circle cx="8.5" cy="7" r=".5" fill="currentColor"/><circle cx="6.5" cy="12" r=".5" fill="currentColor"/>
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
   </svg>
 ));
 
@@ -664,6 +689,124 @@ const getNextOrderForParent = (folderList, parentId) => {
   return siblingOrders.length ? Math.max(...siblingOrders) + 1 : 0;
 };
 
+// --- Sistema de Moedas e Conversão ---
+const SUPPORTED_CURRENCIES = ['BRL', 'USD', 'EUR', 'GBP', 'CNY', 'JPY', 'RUB'];
+
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  BRL: 'R$', USD: '$', EUR: '€', GBP: '£', CNY: '¥', JPY: '¥', RUB: '₽'
+};
+
+const EXCHANGE_RATES_TO_USD: Record<string, number> = {
+  BRL: 1 / 5.55, USD: 1, EUR: 1.08, GBP: 1.26,
+  CNY: 1 / 7.25, JPY: 1 / 149, RUB: 1 / 90
+};
+
+const DEFAULT_CURRENCY_BY_LANG: Record<string, string> = {
+  pt: 'BRL', en: 'USD', es: 'EUR', fr: 'EUR',
+  it: 'EUR', de: 'EUR', zh: 'CNY', ja: 'JPY', ru: 'RUB'
+};
+
+const getItemPriceUSD = (item: any): number => {
+  if (item.priceValue !== undefined && item.priceValue !== '' && !isNaN(Number(item.priceValue))) {
+    const cur = item.priceCurrency || 'USD';
+    return Number(item.priceValue) * (EXCHANGE_RATES_TO_USD[cur] ?? 1);
+  }
+  const text = item.price || '';
+  if (!text) return 0;
+  const numStr = text.replace(/[^\d.,]/g, '').replace(',', '.');
+  const amount = parseFloat(numStr);
+  if (isNaN(amount) || amount === 0) return 0;
+  let cur = 'USD';
+  if (text.includes('R$')) cur = 'BRL';
+  else if (text.includes('€')) cur = 'EUR';
+  else if (text.includes('£')) cur = 'GBP';
+  else if (text.includes('₽')) cur = 'RUB';
+  else if (text.includes('¥')) cur = 'JPY';
+  return amount * (EXCHANGE_RATES_TO_USD[cur] ?? 1);
+};
+
+const calcTotalInCurrency = (itemList: any[], toCurrency: string): number => {
+  const totalUSD = itemList.reduce((acc: number, item: any) => acc + getItemPriceUSD(item), 0);
+  return totalUSD / (EXCHANGE_RATES_TO_USD[toCurrency] ?? 1);
+};
+
+const getItemPriceDisplay = (item: any): string => {
+  if (item.priceValue !== undefined && item.priceValue !== '' && !isNaN(Number(item.priceValue))) {
+    const sym = CURRENCY_SYMBOLS[item.priceCurrency] || item.priceCurrency || '';
+    return `${sym} ${Number(item.priceValue).toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
+  }
+  return item.price || '';
+};
+
+// --- Sistema de Tema Customizável ---
+const hexToRgb = (hex: string): { r: number; g: number; b: number } => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '#6366f1');
+  return result
+    ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) }
+    : { r: 99, g: 102, b: 241 };
+};
+
+const adjustHex = (hex: string, amount: number): string => {
+  const { r, g, b } = hexToRgb(hex);
+  const isDark = (r + g + b) / 3 < 128;
+  const d = isDark ? amount : -amount;
+  const clamp = (v: number) => Math.max(0, Math.min(255, v + d));
+  const toH = (v: number) => clamp(v).toString(16).padStart(2, '0');
+  return `#${toH(r)}${toH(g)}${toH(b)}`;
+};
+
+const DEFAULT_CUSTOM_THEME = { enabled: false, accent: '#6366f1', bg: '#f9fafb', fg: '#1f2937' };
+
+const applyCustomTheme = (theme: typeof DEFAULT_CUSTOM_THEME): void => {
+  let style = document.getElementById('wishlist-custom-theme') as HTMLStyleElement | null;
+  if (!style) {
+    style = document.createElement('style');
+    style.id = 'wishlist-custom-theme';
+    document.head.appendChild(style);
+  }
+  const a = hexToRgb(theme.accent);
+  const f = hexToRgb(theme.fg);
+  const bg = theme.bg; const fg = theme.fg; const accent = theme.accent;
+  const dk = `rgb(${Math.max(0,a.r-30)},${Math.max(0,a.g-30)},${Math.max(0,a.b-30)})`;
+  style.textContent = `
+    .bg-indigo-600{background-color:${accent}!important}
+    .bg-indigo-700,.hover\\:bg-indigo-700:hover{background-color:${dk}!important}
+    .bg-indigo-50,.hover\\:bg-indigo-50:hover{background-color:rgba(${a.r},${a.g},${a.b},0.08)!important}
+    .bg-indigo-900\\/30{background-color:rgba(${a.r},${a.g},${a.b},0.12)!important}
+    .text-indigo-600,.text-indigo-700,.text-indigo-500{color:${accent}!important}
+    .text-indigo-400,.text-indigo-300{color:rgba(${a.r},${a.g},${a.b},0.85)!important}
+    .hover\\:text-indigo-600:hover,.hover\\:text-indigo-500:hover,.hover\\:text-indigo-400:hover{color:${accent}!important}
+    .group-hover\\:text-indigo-500,.group-hover\\:text-indigo-400{color:${accent}!important}
+    .hover\\:bg-indigo-100:hover,.dark\\:hover\\:bg-indigo-900\\/40:hover,.dark\\:hover\\:bg-indigo-900\\/50:hover{background-color:rgba(${a.r},${a.g},${a.b},0.15)!important}
+    .border-indigo-200,.dark\\:border-indigo-800{border-color:rgba(${a.r},${a.g},${a.b},0.3)!important}
+    .border-indigo-500{border-color:${accent}!important}
+    .shadow-indigo-200{--tw-shadow-color:rgba(${a.r},${a.g},${a.b},0.3)!important}
+    .focus\\:ring-indigo-500:focus{--tw-ring-color:${accent}!important}
+    .bg-gray-50,.dark\\:bg-gray-950{background-color:${bg}!important}
+    .bg-white,.dark\\:bg-gray-900{background-color:${adjustHex(bg,12)}!important}
+    .bg-gray-100,.dark\\:bg-gray-800{background-color:${adjustHex(bg,22)}!important}
+    .text-gray-800,.dark\\:text-gray-100{color:${fg}!important}
+    .text-gray-700,.dark\\:text-gray-300{color:rgba(${f.r},${f.g},${f.b},0.85)!important}
+    .text-gray-600,.dark\\:text-gray-400{color:rgba(${f.r},${f.g},${f.b},0.65)!important}
+    .text-gray-500,.dark\\:text-gray-500{color:rgba(${f.r},${f.g},${f.b},0.5)!important}
+    .border-gray-200,.dark\\:border-gray-700,.dark\\:border-gray-800{border-color:rgba(${f.r},${f.g},${f.b},0.15)!important}
+  `;
+};
+
+const removeCustomTheme = (): void => {
+  const el = document.getElementById('wishlist-custom-theme');
+  if (el) el.remove();
+};
+
+const THEME_PRESETS = [
+  { name: 'Indigo', accent: '#6366f1', bg: '#f9fafb', fg: '#1f2937', dark_bg: '#030712', dark_fg: '#f9fafb' },
+  { name: 'Purple', accent: '#a855f7', bg: '#faf5ff', fg: '#1e1b4b', dark_bg: '#09090b', dark_fg: '#faf5ff' },
+  { name: 'Blue',   accent: '#3b82f6', bg: '#eff6ff', fg: '#1e3a5f', dark_bg: '#0a0f1e', dark_fg: '#eff6ff' },
+  { name: 'Emerald',accent: '#10b981', bg: '#f0fdf4', fg: '#14532d', dark_bg: '#052e16', dark_fg: '#f0fdf4' },
+  { name: 'Rose',   accent: '#f43f5e', bg: '#fff1f2', fg: '#4c0519', dark_bg: '#1a0009', dark_fg: '#fff1f2' },
+  { name: 'Amber',  accent: '#f59e0b', bg: '#fffbeb', fg: '#451a03', dark_bg: '#1a0a00', dark_fg: '#fffbeb' },
+];
+
 // --- Confetes caseiro (sem Web Worker, sem CSP extra) ---
 const simpleConfetti = (): void => {
   const canvas = document.createElement('canvas');
@@ -789,6 +932,7 @@ export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [collapsedFolders, setCollapsedFolders] = useState<Set<string>>(new Set());
+  const [isThemePanelOpen, setIsThemePanelOpen] = useState(false);
 
   const toggleFolderCollapse = useCallback((folderId: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -798,6 +942,22 @@ export default function App() {
       return next;
     });
   }, []);
+
+  // --- Moeda de Exibição ---
+  const [displayCurrency, setDisplayCurrency] = useState<string>(() =>
+    safeGetStorage('displayCurrency', null) || DEFAULT_CURRENCY_BY_LANG[safeGetStorage('lang', 'pt')] || 'BRL'
+  );
+  useEffect(() => { safeSetStorage('displayCurrency', displayCurrency); }, [displayCurrency]);
+
+  // --- Tema Customizável ---
+  const [customTheme, setCustomTheme] = useState<typeof DEFAULT_CUSTOM_THEME>(() =>
+    safeGetStorage('customTheme', DEFAULT_CUSTOM_THEME)
+  );
+  useEffect(() => { safeSetStorage('customTheme', customTheme); }, [customTheme]);
+  useEffect(() => {
+    if (customTheme.enabled) applyCustomTheme(customTheme);
+    else removeCustomTheme();
+  }, [customTheme]);
 
   // --- Lixeira ---
   const [deletedItems, setDeletedItems] = useState(() => safeGetStorage('deletedItems', [], 'items'));
@@ -843,7 +1003,7 @@ export default function App() {
   const [itemToDelete, setItemToDelete] = useState(null);
 
   // --- Formulários ---
-  const [newItemForm, setNewItemForm] = useState({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '' });
+  const [newItemForm, setNewItemForm] = useState({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[safeGetStorage('lang','pt')] || 'BRL' });
   const [newFolderName, setNewFolderName] = useState('');
   const [newFolderParentId, setNewFolderParentId] = useState('');
   const [editingFolderId, setEditingFolderId] = useState(null);
@@ -945,8 +1105,8 @@ export default function App() {
       switch(sortBy) {
         case 'nameAsc': return (a.title||'').localeCompare(b.title||'');
         case 'nameDesc': return (b.title||'').localeCompare(a.title||'');
-        case 'priceAsc': return parsePrice(a.price) - parsePrice(b.price);
-        case 'priceDesc': return parsePrice(b.price) - parsePrice(a.price);
+        case 'priceAsc': return (a.priceValue || 0) - (b.priceValue || 0);
+        case 'priceDesc': return (b.priceValue || 0) - (a.priceValue || 0);
         default: return (b.id||'').localeCompare(a.id||''); 
       }
     });
@@ -957,8 +1117,8 @@ export default function App() {
   const wishlistStats = useMemo(() => {
     const purchasedItems = items.filter(item => item.isPurchased);
     const pendingItems = items.filter(item => !item.isPurchased);
-    const purchasedValue = purchasedItems.reduce((acc, item) => acc + parsePrice(item.price), 0);
-    const pendingValue = pendingItems.reduce((acc, item) => acc + parsePrice(item.price), 0);
+    const purchasedValue = purchasedItems.reduce((acc, item) => acc + (item.priceValue || 0), 0);
+    const pendingValue = pendingItems.reduce((acc, item) => acc + (item.priceValue || 0), 0);
     const totalValue = purchasedValue + pendingValue;
     const completion = items.length ? Math.round((purchasedItems.length / items.length) * 100) : 0;
     return {
@@ -1051,7 +1211,9 @@ export default function App() {
     // JS Fallback: Garante que os limites não sejam burlados
     const titleSafe = (newItemForm.title || '').substring(0, 100);
     const descSafe = (newItemForm.description || '').substring(0, 1000);
-    const priceSafe = (newItemForm.price || '').substring(0, 30);
+    const priceSafe = newItemForm.priceValue !== ''
+      ? `${CURRENCY_SYMBOLS[newItemForm.priceCurrency] || ''} ${Number(newItemForm.priceValue).toLocaleString(undefined, { maximumFractionDigits: 2 })}`.trim()
+      : (newItemForm.price || '').substring(0, 30);
     const defaultFolderId = activeFolderId !== 'all'
       ? activeFolderId
       : (flatFolderOptions[0]?.folder.id || 'unassigned');
@@ -1061,6 +1223,8 @@ export default function App() {
       title: titleSafe,
       description: descSafe,
       price: priceSafe,
+      priceValue: newItemForm.priceValue !== '' ? Number(newItemForm.priceValue) : undefined,
+      priceCurrency: newItemForm.priceValue !== '' ? newItemForm.priceCurrency : undefined,
       url: getSafeUrl(newItemForm.url),
       imageUrl: getSafeImageUrl(newItemForm.imageUrl), // Hardening para Imagens Externas
     };
@@ -1079,7 +1243,7 @@ export default function App() {
       setItems(prev => [newItem, ...prev]);
       setIsAddItemModalOpen(false);
     }
-    setNewItemForm({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '' });
+    setNewItemForm({ title: '', description: '', url: '', imageUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[safeGetStorage('lang','pt')] || 'BRL' });
   }, [newItemForm, editingItemId, activeFolderId, flatFolderOptions]);
 
 const toggleItemPurchased = useCallback((id) => {
@@ -1095,9 +1259,11 @@ const toggleItemPurchased = useCallback((id) => {
 
   const openEditModal = (item) => {
     setNewItemForm({
-      title: item.title || '', description: item.description || '', 
-      url: item.url || '', imageUrl: item.imageUrl || '', 
-      folderId: item.folderId || '', price: item.price || ''
+      title: item.title || '', description: item.description || '',
+      url: item.url || '', imageUrl: item.imageUrl || '',
+      folderId: item.folderId || '', price: item.price || '',
+      priceValue: item.priceValue !== undefined ? String(item.priceValue) : '',
+      priceCurrency: item.priceCurrency || DEFAULT_CURRENCY_BY_LANG[lang] || 'BRL'
     });
     setEditingItemId(item.id);
     setIsEditItemModalOpen(true);
@@ -1289,8 +1455,8 @@ const toggleItemPurchased = useCallback((id) => {
             </span>
           </button>
 
-          {/* Botões de ação (aparecem no hover) */}
-          <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ml-1">
+          {/* Botões de ação (absolutos, sobrepostos à direita no hover) */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity bg-white dark:bg-gray-900 pl-1 shadow-[-10px_0_10px_white] dark:shadow-[-10px_0_10px_rgb(17,24,39)]">
             <button
               onClick={(e) => moveFolder(folder.id, 'up', e)}
               className={`p-1 rounded transition-colors ${
@@ -1424,12 +1590,83 @@ const toggleItemPurchased = useCallback((id) => {
           
           {/* Footer Controls (Settings) */}
           <div className="absolute bottom-0 w-full p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+            {/* Painel de Tema (abre acima do footer) */}
+            {isThemePanelOpen && (
+              <>
+                <div className="fixed inset-0 z-30" onClick={() => setIsThemePanelOpen(false)} />
+                <div className="absolute bottom-full left-4 right-4 mb-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl p-4 z-40">
+                  <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">{t.customTheme || 'Personalizar Tema'}</p>
+                  <div className="space-y-2.5 mb-3">
+                    {([
+                      { key: 'accent', label: t.themeAccent || 'Destaque' },
+                      { key: 'bg',     label: t.themeBg || 'Fundo' },
+                      { key: 'fg',     label: t.themeFg || 'Texto' },
+                    ] as { key: keyof typeof DEFAULT_CUSTOM_THEME; label: string }[]).map(({ key, label }) => (
+                      <div key={key} className="flex items-center gap-2">
+                        <label className="text-xs text-gray-600 dark:text-gray-400 w-14 shrink-0">{label}</label>
+                        <div className="flex items-center gap-1.5 ml-auto">
+                          <input
+                            type="color"
+                            value={customTheme[key] as string}
+                            onChange={e => setCustomTheme(prev => ({ ...prev, [key]: e.target.value, enabled: true }))}
+                            className="w-7 h-7 rounded-lg cursor-pointer p-0.5 border border-gray-200 dark:border-gray-600 bg-transparent"
+                          />
+                          <input
+                            type="text"
+                            value={customTheme[key] as string}
+                            onChange={e => {
+                              const val = e.target.value;
+                              if (/^#[0-9a-fA-F]{0,6}$/.test(val))
+                                setCustomTheme(prev => ({ ...prev, [key]: val, enabled: val.length === 7 }));
+                            }}
+                            className="w-20 text-xs px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg outline-none font-mono focus:ring-1 focus:ring-indigo-500"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mb-3">
+                    <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 mb-2 uppercase tracking-wider">{t.themePresets || 'Predefinições'}</p>
+                    <div className="flex gap-2 flex-wrap">
+                      {THEME_PRESETS.map(preset => (
+                        <button
+                          key={preset.name}
+                          onClick={() => setCustomTheme({ enabled: true, accent: preset.accent, bg: isDarkMode ? preset.dark_bg : preset.bg, fg: isDarkMode ? preset.dark_fg : preset.fg })}
+                          className="w-7 h-7 rounded-full border-2 border-white dark:border-gray-900 shadow-md hover:scale-110 transition-transform"
+                          style={{ backgroundColor: preset.accent }}
+                          title={preset.name}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => { setCustomTheme(DEFAULT_CUSTOM_THEME); removeCustomTheme(); }}
+                    className="w-full text-xs py-1.5 text-gray-500 dark:text-gray-400 hover:text-red-500 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                  >
+                    {t.resetTheme || 'Restaurar Padrão'}
+                  </button>
+                </div>
+              </>
+            )}
             <div className="flex gap-2 relative">
               <button 
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
                 {isDarkMode ? <IconSun /> : <IconMoon />}
+              </button>
+
+              {/* Botão de Tema */}
+              <button
+                onClick={() => setIsThemePanelOpen(!isThemePanelOpen)}
+                className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-colors border ${
+                  isThemePanelOpen
+                    ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800'
+                    : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
+                title={t.customTheme || 'Personalizar Tema'}
+              >
+                <IconPalette />
               </button>
               
               <button 
@@ -1613,92 +1850,80 @@ const toggleItemPurchased = useCallback((id) => {
 
           {/* Content Area */}
                     <div className="flex-1 overflow-y-auto p-4 sm:p-8">
-            {/* Dashboard de Estatísticas — Redesenhado */}
+            {/* Dashboard de Estatísticas — Painel Único Compacto */}
             {(items.length > 0 || folders.length > 0) && (() => {
-              const stats = wishlistStats;
-              const progressPct = stats.completion;
-              const circumference = 2 * Math.PI * 26; // raio 26
-              const strokeDashoffset = circumference - (progressPct / 100) * circumference;
-              const totalValue = stats.purchasedValue + stats.pendingValue;
-              const purchasedPct = totalValue > 0 ? (stats.purchasedValue / totalValue) * 100 : 0;
+              const scopedItems = activeFolderId === 'all'
+                ? items
+                : items.filter(item => {
+                    const desc = new Set<string>();
+                    const collect = (id: string) => {
+                      (folderChildrenMap.get(id) || []).forEach(child => { desc.add(child.id); collect(child.id); });
+                    };
+                    collect(activeFolderId);
+                    desc.add(activeFolderId);
+                    return desc.has(item.folderId);
+                  });
+              const purchased = scopedItems.filter(i => i.isPurchased).length;
+              const pending = scopedItems.filter(i => !i.isPurchased).length;
+              const total = scopedItems.length;
+              const pct = total > 0 ? Math.round((purchased / total) * 100) : 0;
+              const sym = CURRENCY_SYMBOLS[displayCurrency] || displayCurrency;
               return (
-                <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-
-                  {/* Card 1 — Progresso Circular */}
-                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm flex items-center gap-5">
-                    <div className="relative shrink-0 w-16 h-16">
-                      <svg viewBox="0 0 60 60" className="w-16 h-16 -rotate-90">
-                        <circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" strokeWidth="6" className="text-gray-100 dark:text-gray-800" />
-                        <circle
-                          cx="30" cy="30" r="26" fill="none"
-                          stroke="currentColor" strokeWidth="6"
-                          strokeLinecap="round"
-                          strokeDasharray={circumference}
-                          strokeDashoffset={strokeDashoffset}
-                          className="text-indigo-500 dark:text-indigo-400 transition-all duration-700"
-                        />
-                      </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700 dark:text-gray-200">
-                        {progressPct}%
-                      </span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.completionRate || 'Concluído'}</p>
-                      <p className="text-xl font-bold text-gray-800 dark:text-gray-100 mt-0.5">
-                        {stats.purchasedItems} <span className="text-sm font-medium text-gray-400 dark:text-gray-500">/ {stats.totalItems}</span>
-                      </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{t.totalItems || 'itens'}</p>
-                    </div>
+                <div className="mx-4 sm:mx-8 mt-5 mb-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+                  {/* Barra de progresso no topo */}
+                  <div className="h-1.5 bg-gray-100 dark:bg-gray-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-indigo-400 to-indigo-600 transition-all duration-700 rounded-r-full"
+                      style={{ width: `${pct}%` }}
+                    />
                   </div>
-
-                  {/* Card 2 — Comprado vs Pendente (valor) */}
-                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
-                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-3">{t.summaryTitle || 'Resumo'}</p>
-                    <div className="flex items-end justify-between mb-2">
+                  <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-4">
+                    {/* Lado esquerdo: contadores */}
+                    <div className="flex items-center gap-5">
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{t.purchasedValue || 'Comprado'}</p>
-                        <p className="text-base font-bold text-green-600 dark:text-green-400">{t.currency || ''} {stats.purchasedValue.toLocaleString()}</p>
+                        <p className="text-2xl font-bold text-gray-800 dark:text-gray-100 leading-none">{total}</p>
+                        <p className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 mt-0.5">{t.totalItems || 'Total'}</p>
                       </div>
+                      <div className="w-px h-10 bg-gray-200 dark:bg-gray-700" />
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+                          <span className="text-sm font-semibold text-green-600 dark:text-green-400">{purchased}</span>
+                          <span className="text-xs text-gray-400">{t.purchased || 'comprados'}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                          <span className="text-sm font-semibold text-amber-500">{pending}</span>
+                          <span className="text-xs text-gray-400">{t.pending || 'pendentes'}</span>
+                        </div>
+                      </div>
+                      <div className="hidden sm:flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-xl px-3 py-1.5">
+                        <div className="w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                          <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
+                        </div>
+                        <span className="text-xs font-bold text-gray-600 dark:text-gray-300">{pct}%</span>
+                      </div>
+                    </div>
+                    {/* Lado direito: total + seletor de moeda */}
+                    <div className="flex items-center gap-3">
                       <div className="text-right">
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{t.pendingValue || 'Pendente'}</p>
-                        <p className="text-base font-bold text-amber-500 dark:text-amber-400">{t.currency || ''} {stats.pendingValue.toLocaleString()}</p>
+                        <p className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500">{t.totalSpent || 'Total estimado'}</p>
+                        <p className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+                          {sym} {calcTotalInCurrency(scopedItems, displayCurrency).toLocaleString(undefined, { maximumFractionDigits: 2 })}
+                        </p>
                       </div>
-                    </div>
-                    {/* Barra de progresso dividida */}
-                    <div className="h-2.5 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-700"
-                        style={{ width: `${purchasedPct}%` }}
-                      />
-                    </div>
-                    <div className="flex justify-between mt-1.5">
-                      <span className="text-[10px] text-green-500 font-medium">{Math.round(purchasedPct)}% {t.purchased || 'comprado'}</span>
-                      <span className="text-[10px] text-amber-500 font-medium">{Math.round(100 - purchasedPct)}% {t.pending || 'pendente'}</span>
+                      <select
+                        value={displayCurrency}
+                        onChange={e => setDisplayCurrency(e.target.value)}
+                        className="text-xs px-2 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg outline-none cursor-pointer focus:ring-2 focus:ring-indigo-500"
+                      >
+                        {SUPPORTED_CURRENCIES.map(c => (
+                          <option key={c} value={c}>{CURRENCY_SYMBOLS[c]} {c}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
-
-                  {/* Card 3 — Total e Pastas */}
-                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
-                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-3">{t.totalSpent || 'Total estimado'}</p>
-                    <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                      {t.currency || ''} {stats.totalValue.toLocaleString()}
-                    </p>
-                    <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
-                        <IconFolder />
-                        <span className="text-sm">{stats.folderCount} {t.totalFolders || 'pastas'}</span>
-                      </div>
-                      <div className="flex gap-1">
-                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
-                          ✓ {stats.purchasedItems}
-                        </span>
-                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
-                          ◷ {stats.pendingItems}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
+                  <p className="px-5 pb-2 text-[9px] text-gray-400 dark:text-gray-600">* {t.approxRates || 'Valores estimados (câmbio aproximado)'}</p>
                 </div>
               );
             })()}
