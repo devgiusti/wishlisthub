@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import './App.css';
 
 // --- Ambiente e Tratamento de Erros ---
 const isProd = import.meta.env.PROD;
@@ -1541,8 +1542,8 @@ const toggleItemPurchased = useCallback((id) => {
   }
 
   return (
-    <div className={isDarkMode ? 'dark' : ''}>
-      <div className="flex h-screen bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 font-sans overflow-hidden transition-colors duration-200">
+    <div className={isDarkMode ? 'dark' : ''} style={{ height: '100dvh', display: 'flex', flexDirection: 'column' }}>
+      <div className="flex h-full bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 font-sans overflow-hidden transition-colors duration-200">
         
         {/* Sidebar Mobile Overlay */}
         {isSidebarOpen && (
@@ -1553,18 +1554,19 @@ const toggleItemPurchased = useCallback((id) => {
         )}
 
         {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 dark:border-gray-800">
-            <h1 className="text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-100 flex items-end">
+        <aside className={`fixed inset-y-0 left-0 z-30 w-[260px] xl:w-72 3xl:w-80 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:shrink-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className="flex items-center justify-between h-14 md:h-16 px-4 border-b border-gray-200 dark:border-gray-800 shrink-0">
+            <h1 className="text-xl md:text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-100 flex items-end">
               {t.appTitle}
               <div className="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mb-1.5 ml-0.5"></div>
             </h1>
-            <button className="md:hidden p-1 text-gray-500 dark:text-gray-400" onClick={() => setIsSidebarOpen(false)}>
+            <button className="md:hidden p-2 text-gray-500 dark:text-gray-400 touch-compact rounded-lg" onClick={() => setIsSidebarOpen(false)}>
               <IconX />
             </button>
           </div>
 
-          <div className="p-4">
+          {/* Sidebar scrollable content */}
+          <div className="flex-1 overflow-y-auto p-4">
             <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">{t.menu}</p>
             <ul className="space-y-1">
               <li>
@@ -1581,19 +1583,19 @@ const toggleItemPurchased = useCallback((id) => {
               </li>
             </ul>
 
-            <div className="mt-8 mb-3 flex items-center justify-between">
+            <div className="mt-6 mb-3 flex items-center justify-between">
               <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">{t.myFolders}</p>
               <div className="flex gap-1">
-                <button onClick={() => setIsTrashModalOpen(true)} className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1" title={t.trashTitle}>
+                <button onClick={() => setIsTrashModalOpen(true)} className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1.5 touch-compact rounded-lg" title={t.trashTitle}>
                   <IconTrash />
                 </button>
-                <button onClick={() => openAddFolderModal()} className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-1" title={t.newFolder}>
+                <button onClick={() => openAddFolderModal()} className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-1.5 touch-compact rounded-lg" title={t.newFolder}>
                   <IconPlus />
                 </button>
               </div>
             </div>
             
-            <ul className="space-y-1 overflow-y-auto max-h-[40vh] pr-1">
+            <ul className="space-y-1 pr-1">
               {(folderChildrenMap.get(null) || []).map(folder => renderSidebarFolder(folder))}
             </ul>
           </div>
@@ -1707,39 +1709,39 @@ const toggleItemPurchased = useCallback((id) => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col h-full overflow-hidden relative">
+        <main className="flex-1 flex flex-col h-full overflow-hidden relative min-w-0">
           
           {/* Header */}
           {totalSelectedCount > 0 ? (
-            <header className="h-16 flex items-center justify-between px-4 sm:px-8 bg-indigo-50 dark:bg-indigo-900/30 border-b border-indigo-100 dark:border-indigo-800 shrink-0 transition-colors">
-              <div className="flex items-center gap-3">
-                <button onClick={clearSelection} className="p-2 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 rounded-lg transition-colors">
+            <header className="h-14 md:h-16 flex items-center justify-between px-3 sm:px-6 2xl:px-10 bg-indigo-50 dark:bg-indigo-900/30 border-b border-indigo-100 dark:border-indigo-800 shrink-0 transition-colors gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <button onClick={clearSelection} className="p-2 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 rounded-lg transition-colors shrink-0 touch-compact">
                   <IconX />
                 </button>
-                <span className="font-semibold text-indigo-700 dark:text-indigo-300">
+                <span className="font-semibold text-indigo-700 dark:text-indigo-300 text-sm md:text-base truncate">
                   {totalSelectedCount} {t.selectedMsg}
                 </span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-4">
-                <button onClick={handleSelectAll} className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 px-3 py-2 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
+              <div className="flex items-center gap-2 shrink-0">
+                <button onClick={handleSelectAll} className="text-xs md:text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 px-2 md:px-3 py-2 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors touch-compact">
                   {isAllSelected ? t.deselectAll : t.selectAll}
                 </button>
-                <button onClick={() => setIsBulkDeleteModalOpen(true)} className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl font-medium transition-colors shadow-sm">
-                  <IconTrash /> <span className="hidden sm:inline">{t.deleteSelected}</span>
+                <button onClick={() => setIsBulkDeleteModalOpen(true)} className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-xl font-medium transition-colors shadow-sm touch-compact text-sm">
+                  <IconTrash /> <span className="hidden xs:inline">{t.deleteSelected}</span>
                 </button>
               </div>
             </header>
           ) : (
-            <header className="h-16 flex items-center justify-between px-4 sm:px-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shrink-0">
-              <div className="flex items-center">
-                <button className="md:hidden mr-4 text-gray-600 dark:text-gray-400" onClick={() => setIsSidebarOpen(true)}>
+            <header className="h-14 md:h-16 flex items-center justify-between px-3 sm:px-6 2xl:px-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shrink-0 gap-2">
+              <div className="flex items-center min-w-0 gap-2">
+                <button className="md:hidden p-2 text-gray-600 dark:text-gray-400 touch-compact rounded-lg" onClick={() => setIsSidebarOpen(true)}>
                   <IconMenu />
                 </button>
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 line-clamp-1">{activeFolderName}</h2>
+                <h2 className="text-base md:text-xl font-semibold text-gray-800 dark:text-gray-100 truncate">{activeFolderName}</h2>
               </div>
               
-              <div className="flex items-center gap-2 sm:gap-4">
-                {/* Botão Exportar */}
+              <div className="flex items-center gap-1 xs:gap-2 shrink-0">
+                {/* Export */}
                 <button
                   onClick={() => {
                     const data = { folders, items };
@@ -1749,22 +1751,17 @@ const toggleItemPurchased = useCallback((id) => {
                     const a = document.createElement('a');
                     a.href = url;
                     a.download = `wishlist_backup_${new Date().toISOString().slice(0,19)}.json`;
-                    document.body.appendChild(a);
-                    a.click();
+                    document.body.appendChild(a); a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                   }}
-                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="hidden xs:flex text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-2 sm:px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors touch-compact"
                 >
                   {t.export || 'Exportar'}
                 </button>
 
-                {/* Botão Importar (com input file escondido) */}
-                <input
-                  type="file"
-                  id="import-file"
-                  accept=".json"
-                  className="hidden"
+                {/* Import */}
+                <input type="file" id="import-file" accept=".json" className="hidden"
                   onChange={(e) => {
                     const file = e.target.files?.[0];
                     if (!file) return;
@@ -1772,8 +1769,8 @@ const toggleItemPurchased = useCallback((id) => {
                     reader.onload = (ev) => {
                       try {
                         const imported = JSON.parse(ev.target?.result as string);
-                        if (!imported.folders || !Array.isArray(imported.folders)) throw new Error('Formato inválido');
-                        if (!imported.items || !Array.isArray(imported.items)) throw new Error('Formato inválido');
+                        if (!imported.folders || !Array.isArray(imported.folders)) throw new Error('Invalid');
+                        if (!imported.items || !Array.isArray(imported.items)) throw new Error('Invalid');
                         if (confirm(t.importConfirmMsg || 'Importar irá substituir todos os dados atuais. Continuar?')) {
                           setFolders(normalizeFolders(imported.folders));
                           setItems(imported.items);
@@ -1791,31 +1788,25 @@ const toggleItemPurchased = useCallback((id) => {
                 />
                 <button
                   onClick={() => document.getElementById('import-file')?.click()}
-                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="hidden xs:flex text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-2 sm:px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors touch-compact"
                 >
                   {t.import || 'Importar'}
                 </button>
 
                 <div className="flex bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
-                  <button 
-                    onClick={() => setLayout('grid')} 
-                    className={`p-1.5 rounded-md transition-colors ${layout === 'grid' ? 'bg-white dark:bg-gray-700 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
-                  >
+                  <button onClick={() => setLayout('grid')} className={`p-1.5 rounded-md transition-colors touch-compact ${layout === 'grid' ? 'bg-white dark:bg-gray-700 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                     <IconGrid />
                   </button>
-                  <button 
-                    onClick={() => setLayout('list')} 
-                    className={`p-1.5 rounded-md transition-colors ${layout === 'list' ? 'bg-white dark:bg-gray-700 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
-                  >
+                  <button onClick={() => setLayout('list')} className={`p-1.5 rounded-md transition-colors touch-compact ${layout === 'list' ? 'bg-white dark:bg-gray-700 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                     <IconList />
                   </button>
                 </div>
 
                 <button 
                   onClick={openAddItemModal}
-                  className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-3 sm:px-4 py-2 rounded-xl font-medium transition-colors shadow-sm shadow-indigo-200 dark:shadow-none"
+                  className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white px-3 sm:px-4 py-2 rounded-xl font-medium transition-colors shadow-sm shadow-indigo-200 dark:shadow-none touch-compact text-sm"
                 >
-                  <IconPlus /> <span className="hidden sm:inline">{t.add}</span>
+                  <IconPlus /> <span className="hidden xs:inline">{t.add}</span>
                 </button>
               </div>
             </header>
@@ -1823,30 +1814,30 @@ const toggleItemPurchased = useCallback((id) => {
 
           {/* Ferramentas: Pesquisa e Filtros */}
           {(items.length > 0 || folders.length > 0) && (
-            <div className="px-4 sm:px-8 py-3 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center shrink-0">
-              <div className="relative w-full sm:max-w-xs">
+            <div className="px-3 sm:px-6 2xl:px-10 py-2.5 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex flex-row flex-wrap gap-2 items-center shrink-0">
+              <div className="relative flex-1 min-w-0" style={{ minWidth: '120px' }}>
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                   <IconSearch />
                 </div>
                 <input 
-                  type="text" 
+                  type="text"
                   placeholder={t.searchPlaceholder}
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm transition-all"
+                  className="w-full pl-9 pr-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm transition-all"
                 />
               </div>
-              <div className="flex w-full sm:w-auto items-center gap-3">
+              <div className="flex items-center gap-2 shrink-0">
                 <button 
                   onClick={() => setShowPurchased(!showPurchased)}
-                  className={`text-sm font-medium px-3 py-2 rounded-xl transition-colors border ${showPurchased ? 'bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800' : 'bg-gray-50 text-gray-600 border-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                  className={`text-xs sm:text-sm font-medium px-2 sm:px-3 py-2 rounded-xl transition-colors border touch-compact whitespace-nowrap ${showPurchased ? 'bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800' : 'bg-gray-50 text-gray-600 border-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                 >
                   {showPurchased ? t.hidePurchased : t.showPurchased}
                 </button>
                 <select 
                   value={sortBy}
                   onChange={e => setSortBy(e.target.value)}
-                  className="flex-1 sm:flex-none text-sm px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none cursor-pointer"
+                  className="text-xs sm:text-sm px-2 sm:px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none cursor-pointer touch-compact"
                 >
                   <option value="default">{t.sortDefault}</option>
                   <option value="nameAsc">{t.sortNameAsc}</option>
@@ -1859,7 +1850,7 @@ const toggleItemPurchased = useCallback((id) => {
           )}
 
           {/* Content Area */}
-                    <div className="flex-1 overflow-y-auto p-4 sm:p-8">
+          <div className="flex-1 overflow-y-auto p-3 xs:p-4 sm:p-6 lg:p-8 2xl:px-12 3xl:px-16">
             {/* Dashboard de Estatísticas — Painel Único Compacto */}
             {(items.length > 0 || folders.length > 0) && (() => {
               const scopedItems = activeFolderId === 'all'
@@ -1879,19 +1870,16 @@ const toggleItemPurchased = useCallback((id) => {
               const pct = total > 0 ? Math.round((purchased / total) * 100) : 0;
               const sym = CURRENCY_SYMBOLS[displayCurrency] || displayCurrency;
               return (
-                <div className="mx-4 sm:mx-8 mt-5 mb-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
-                  {/* Barra de progresso no topo */}
+                <div className="mt-4 mb-3 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+                  {/* Progress bar */}
                   <div className="h-1.5 bg-gray-100 dark:bg-gray-800">
-                    <div
-                      className="h-full bg-gradient-to-r from-indigo-400 to-indigo-600 transition-all duration-700 rounded-r-full"
-                      style={{ width: `${pct}%` }}
-                    />
+                    <div className="h-full bg-gradient-to-r from-indigo-400 to-indigo-600 transition-all duration-700 rounded-r-full" style={{ width: `${pct}%` }} />
                   </div>
-                  <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-4">
-                    {/* Lado esquerdo: contadores */}
-                    <div className="flex items-center gap-5">
+                  {/* Stats row — stacks on tiny screens, inline on sm+ */}
+                  <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 sm:px-5 py-3 sm:py-4">
+                    <div className="flex items-center gap-4">
                       <div>
-                        <p className="text-2xl font-bold text-gray-800 dark:text-gray-100 leading-none">{total}</p>
+                        <p className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100 leading-none">{total}</p>
                         <p className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 mt-0.5">{t.totalItems || 'Total'}</p>
                       </div>
                       <div className="w-px h-10 bg-gray-200 dark:bg-gray-700" />
@@ -1908,24 +1896,24 @@ const toggleItemPurchased = useCallback((id) => {
                         </div>
                       </div>
                       <div className="hidden sm:flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-xl px-3 py-1.5">
-                        <div className="w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div className="w-14 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                           <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
                         </div>
                         <span className="text-xs font-bold text-gray-600 dark:text-gray-300">{pct}%</span>
                       </div>
                     </div>
-                    {/* Lado direito: total + seletor de moeda */}
-                    <div className="flex items-center gap-3">
+                    {/* Right side: total + currency selector */}
+                    <div className="flex items-center gap-2 sm:gap-3">
                       <div className="text-right">
                         <p className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500">{t.totalSpent || 'Total estimado'}</p>
-                        <p className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+                        <p className="text-lg sm:text-xl font-bold text-indigo-600 dark:text-indigo-400">
                           {sym} {calcTotalInCurrency(scopedItems, displayCurrency).toLocaleString(undefined, { maximumFractionDigits: 2 })}
                         </p>
                       </div>
                       <select
                         value={displayCurrency}
                         onChange={e => setDisplayCurrency(e.target.value)}
-                        className="text-xs px-2 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg outline-none cursor-pointer focus:ring-2 focus:ring-indigo-500"
+                        className="text-xs px-2 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg outline-none cursor-pointer focus:ring-2 focus:ring-indigo-500 touch-compact"
                       >
                         {SUPPORTED_CURRENCIES.map(c => (
                           <option key={c} value={c}>{CURRENCY_SYMBOLS[c]} {c}</option>
@@ -1933,7 +1921,7 @@ const toggleItemPurchased = useCallback((id) => {
                       </select>
                     </div>
                   </div>
-                  <p className="px-5 pb-2 text-[9px] text-gray-400 dark:text-gray-600">* {t.approxRates || 'Valores estimados (câmbio aproximado)'}</p>
+                  <p className="px-4 sm:px-5 pb-2 text-[9px] text-gray-400 dark:text-gray-600">* {t.approxRates || 'Valores estimados (câmbio aproximado)'}</p>
                 </div>
               );
             })()}
@@ -1944,7 +1932,7 @@ const toggleItemPurchased = useCallback((id) => {
                 <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
                   <IconFolder /> {t.foldersCount} ({folders.length})
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7 gap-3 sm:gap-4">
                   {folders.map(folder => {
                     const isSelected = selectedFolders.includes(folder.id);
                     return (
@@ -2000,8 +1988,8 @@ const toggleItemPurchased = useCallback((id) => {
             ) : (
               <div className={
                 layout === 'grid' 
-                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" 
-                  : "flex flex-col gap-4 max-w-4xl mx-auto"
+                  ? "grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4 sm:gap-6" 
+                  : "flex flex-col gap-3 sm:gap-4 max-w-5xl mx-auto"
               }>
                 {processedItems.map(item => {
                   const isSelected = selectedItems.includes(item.id);
@@ -2012,7 +2000,7 @@ const toggleItemPurchased = useCallback((id) => {
                       key={item.id} 
                       className={`bg-white dark:bg-gray-900 rounded-2xl border overflow-hidden hover:shadow-lg dark:hover:shadow-indigo-900/20 transition-all group ${layout === 'list' ? 'flex flex-row' : 'flex flex-col h-full'} ${isSelected ? 'border-indigo-500 ring-1 ring-indigo-500' : 'border-gray-200 dark:border-gray-800'} ${item.isPurchased ? 'opacity-75 bg-gray-50 dark:bg-gray-800/50' : ''}`}
                     >
-                      <div className={`${layout === 'list' ? 'w-40 sm:w-48 shrink-0' : 'w-full aspect-video sm:aspect-square'} bg-gray-100 dark:bg-gray-800 relative overflow-hidden`}>
+                      <div className={`${layout === 'list' ? 'w-28 xs:w-36 sm:w-48 shrink-0' : 'w-full aspect-video'} bg-gray-100 dark:bg-gray-800 relative overflow-hidden`}>
                         <div className="absolute top-3 left-3 z-20 flex flex-col gap-2" onClick={e => e.stopPropagation()}>
                           <input 
                             type="checkbox" 
@@ -2052,7 +2040,7 @@ const toggleItemPurchased = useCallback((id) => {
                         )}
                       </div>
                       
-                      <div className="p-4 sm:p-5 flex flex-col flex-1">
+                      <div className="p-3 sm:p-4 lg:p-5 flex flex-col flex-1">
                         <div className="flex gap-2 items-start justify-between mb-1">
                           <h3 className={`font-bold text-gray-800 dark:text-gray-100 text-lg leading-tight line-clamp-2 ${item.isPurchased ? 'line-through text-gray-500 dark:text-gray-400' : ''}`}>{item.title}</h3>
                         </div>
@@ -2096,10 +2084,10 @@ const toggleItemPurchased = useCallback((id) => {
 
         {/* Modal Adicionar/Editar Item */}
         {(isAddItemModalOpen || isEditItemModalOpen) && (
-          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-              <div className="flex justify-between items-center p-5 border-b border-gray-100 dark:border-gray-800">
-                <h2 className="text-xl font-bold text-gray-800 dark:text-white">{editingItemId ? t.editWish : t.addWish}</h2>
+          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:p-4">
+            <div className="bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-lg overflow-hidden shadow-2xl animate-in">
+              <div className="flex justify-between items-center p-4 sm:p-5 border-b border-gray-100 dark:border-gray-800">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">{editingItemId ? t.editWish : t.addWish}</h2>
                 <button 
                  onClick={() => { 
                     setIsAddItemModalOpen(false); 
@@ -2107,18 +2095,18 @@ const toggleItemPurchased = useCallback((id) => {
                     setEditingItemId(null); 
                     setNewItemForm({ title: '', description: '', url: '', imageUrl: '', imageDataUrl: '', folderId: '', price: '', priceValue: '', priceCurrency: DEFAULT_CURRENCY_BY_LANG[lang] || 'BRL' }); 
                   }} 
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-lg touch-compact"
                 >
                   <IconX />
                 </button>
               </div>
-              <form onSubmit={handleAddItem} className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
+              <form onSubmit={handleAddItem} className="p-4 sm:p-5 space-y-4 overflow-y-auto" style={{ maxHeight: 'calc(85dvh - 80px)' }}>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.urlLabel}</label>
                   <input 
                     type="url" required
                     placeholder={t.urlPlaceholder} 
-                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-sm sm:text-base"
                     value={newItemForm.url} onChange={e => setNewItemForm({...newItemForm, url: e.target.value})}
                   />
                 </div>
@@ -2127,15 +2115,14 @@ const toggleItemPurchased = useCallback((id) => {
                   <input 
                     type="text" required maxLength={100}
                     placeholder={t.namePlaceholder} 
-                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-sm sm:text-base"
                     value={newItemForm.title} onChange={e => setNewItemForm({...newItemForm, title: e.target.value})}
                   />
                 </div>
 
-                {/* Campo de Imagem: URL + Upload de Arquivo / Drag-and-Drop */}
+                {/* Image field */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{t.imgLabel}</label>
-                  {/* Preview se já há imagem */}
                   {(newItemForm.imageDataUrl || newItemForm.imageUrl) && (
                     <div className="relative mb-2 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
                       <img
@@ -2147,13 +2134,12 @@ const toggleItemPurchased = useCallback((id) => {
                       <button
                         type="button"
                         onClick={() => setNewItemForm(prev => ({ ...prev, imageUrl: '', imageDataUrl: '' }))}
-                        className="absolute top-1.5 right-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full p-1 transition-colors"
+                        className="absolute top-1.5 right-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full p-1 transition-colors touch-compact"
                       >
                         <IconX />
                       </button>
                     </div>
                   )}
-                  {/* Drag-and-Drop Zone */}
                   {!newItemForm.imageDataUrl && !newItemForm.imageUrl && (
                     <label
                       htmlFor="img-file-upload"
@@ -2193,18 +2179,17 @@ const toggleItemPurchased = useCallback((id) => {
                       />
                     </label>
                   )}
-                  {/* Campo de URL de imagem (alternativo) */}
                   {!newItemForm.imageDataUrl && (
                     <input 
                       type="url"
                       placeholder={t.imgPlaceholder} 
-                      className="w-full mt-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                      className="w-full mt-2 px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-sm sm:text-base"
                       value={newItemForm.imageUrl} onChange={e => setNewItemForm({...newItemForm, imageUrl: e.target.value, imageDataUrl: ''})}
                     />
                   )}
                 </div>
 
-                {/* Valor + Seletor de Moeda */}
+                {/* Price + Currency */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                     {t.priceLabel || 'Valor (Opcional)'}
@@ -2213,12 +2198,12 @@ const toggleItemPurchased = useCallback((id) => {
                     <input
                       type="number" min="0" step="any"
                       placeholder="0.00"
-                      className="flex-1 min-w-0 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                      className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-sm sm:text-base"
                       value={newItemForm.priceValue}
                       onChange={e => setNewItemForm({...newItemForm, priceValue: e.target.value})}
                     />
                     <select
-                      className="shrink-0 px-2.5 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm cursor-pointer"
+                      className="shrink-0 px-2 sm:px-2.5 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm cursor-pointer"
                       value={newItemForm.priceCurrency}
                       onChange={e => setNewItemForm({...newItemForm, priceCurrency: e.target.value})}
                     >
@@ -2229,11 +2214,11 @@ const toggleItemPurchased = useCallback((id) => {
                   </div>
                 </div>
 
-                {/* Pasta */}
+                {/* Folder */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.folderLabel}</label>
                   <select 
-                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all appearance-none"
+                    className="w-full px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all appearance-none text-sm sm:text-base"
                     value={newItemForm.folderId || (flatFolderOptions[0]?.folder.id || '')} 
                     onChange={e => setNewItemForm({...newItemForm, folderId: e.target.value})}
                   >
@@ -2248,12 +2233,12 @@ const toggleItemPurchased = useCallback((id) => {
                   <textarea 
                     rows={2} maxLength={1000}
                     placeholder={t.descPlaceholder} 
-                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all resize-none text-sm sm:text-base"
                     value={newItemForm.description} onChange={e => setNewItemForm({...newItemForm, description: e.target.value})}
                   />
                 </div>
-                <div className="pt-2">
-                  <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl transition-colors">
+                <div className="pt-1 pb-safe">
+                  <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl transition-colors touch-compact">
                     {editingItemId ? t.saveChanges : t.saveList}
                   </button>
                 </div>
@@ -2264,10 +2249,10 @@ const toggleItemPurchased = useCallback((id) => {
 
         {/* Modal Adicionar/Editar Pasta */}
         {(isAddFolderModalOpen || isEditFolderModalOpen) && (
-          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-              <div className="flex justify-between items-center p-5 border-b border-gray-100 dark:border-gray-800">
-                <h2 className="text-xl font-bold text-gray-800 dark:text-white">{editingFolderId ? t.editFolder : t.newFolder}</h2>
+          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:p-4">
+            <div className="bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-sm overflow-hidden shadow-2xl animate-in">
+              <div className="flex justify-between items-center p-4 sm:p-5 border-b border-gray-100 dark:border-gray-800">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">{editingFolderId ? t.editFolder : t.newFolder}</h2>
                 <button 
                   onClick={() => { 
                     setIsAddFolderModalOpen(false); 
@@ -2275,22 +2260,22 @@ const toggleItemPurchased = useCallback((id) => {
                     setEditingFolderId(null); 
                     setNewFolderName(''); 
                   }} 
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-lg touch-compact"
                 >
                   <IconX />
                 </button>
               </div>
-              <form onSubmit={handleSaveFolder} className="p-5 space-y-4">
+              <form onSubmit={handleSaveFolder} className="p-4 sm:p-5 space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t.folderNameLabel}</label>
                   <input 
                     type="text" required autoFocus maxLength={50}
                     placeholder={t.folderPlaceholder} 
-                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                     value={newFolderName} onChange={e => setNewFolderName(e.target.value)}
                   />
                 </div>
-                <div className="pt-2 flex gap-3">
+                <div className="pt-2 pb-safe flex gap-3">
                   <button 
                     type="button" 
                     onClick={() => { 
@@ -2299,11 +2284,11 @@ const toggleItemPurchased = useCallback((id) => {
                       setEditingFolderId(null); 
                       setNewFolderName(''); 
                     }} 
-                    className="flex-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium py-2.5 rounded-xl transition-colors hover:bg-gray-50 dark:hover:bg-gray-700"
+                    className="flex-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium py-2.5 rounded-xl transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 touch-compact"
                   >
                     {t.cancel}
                   </button>
-                  <button type="submit" className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-xl transition-colors">
+                  <button type="submit" className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-xl transition-colors touch-compact">
                     {editingFolderId ? t.save : t.create}
                   </button>
                 </div>
@@ -2314,18 +2299,18 @@ const toggleItemPurchased = useCallback((id) => {
 
         {/* Modal de Confirmação de Exclusão Única */}
         {itemToDelete && (
-          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl p-6 animate-in fade-in zoom-in-95 duration-200 text-center">
-              <div className="w-16 h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center text-red-500 dark:text-red-400 mx-auto mb-4">
+          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:p-4">
+            <div className="bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-sm overflow-hidden shadow-2xl p-5 sm:p-6 animate-in text-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center text-red-500 dark:text-red-400 mx-auto mb-4">
                 <IconTrash />
               </div>
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{t.confirmSingleDelete}</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">{t.confirmSingleDeleteMsg}</p>
-              <div className="flex gap-3">
-                <button onClick={() => setItemToDelete(null)} className="flex-1 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors text-sm">
+              <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-2">{t.confirmSingleDelete}</h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-5 sm:mb-6">{t.confirmSingleDeleteMsg}</p>
+              <div className="flex gap-3 pb-safe">
+                <button onClick={() => setItemToDelete(null)} className="flex-1 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors text-sm touch-compact">
                   {t.cancel}
                 </button>
-                <button onClick={handleSingleDelete} className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <button onClick={handleSingleDelete} className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 rounded-xl transition-colors text-sm touch-compact">
                   {t.yesDelete}
                 </button>
               </div>
@@ -2335,18 +2320,18 @@ const toggleItemPurchased = useCallback((id) => {
 
         {/* Modal de Confirmação de Exclusão em Massa */}
         {isBulkDeleteModalOpen && (
-          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl p-6 animate-in fade-in zoom-in-95 duration-200 text-center">
-              <div className="w-16 h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center text-red-500 dark:text-red-400 mx-auto mb-4">
+          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:p-4">
+            <div className="bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-sm overflow-hidden shadow-2xl p-5 sm:p-6 animate-in text-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center text-red-500 dark:text-red-400 mx-auto mb-4">
                 <IconTrash />
               </div>
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{t.confirmBulkDelete}</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">{t.confirmDeleteMsg}</p>
-              <div className="flex gap-3">
-                <button onClick={() => setIsBulkDeleteModalOpen(false)} className="flex-1 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors text-sm">
+              <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-2">{t.confirmBulkDelete}</h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-5 sm:mb-6">{t.confirmDeleteMsg}</p>
+              <div className="flex gap-3 pb-safe">
+                <button onClick={() => setIsBulkDeleteModalOpen(false)} className="flex-1 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors text-sm touch-compact">
                   {t.cancel}
                 </button>
-                <button onClick={() => { handleBulkDelete(); setIsBulkDeleteModalOpen(false); }} className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <button onClick={() => { handleBulkDelete(); setIsBulkDeleteModalOpen(false); }} className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 rounded-xl transition-colors text-sm touch-compact">
                   {t.yesDelete}
                 </button>
               </div>
@@ -2356,21 +2341,21 @@ const toggleItemPurchased = useCallback((id) => {
 
         {/* Modal da Lixeira */}
         {isTrashModalOpen && (
-          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-              <div className="flex justify-between items-center p-5 border-b border-gray-100 dark:border-gray-800">
-                <h2 className="text-xl font-bold text-gray-800 dark:text-white">{t.trashTitle || 'Lixeira'} ({deletedItems.length})</h2>
-                <button onClick={() => setIsTrashModalOpen(false)} className="text-gray-400 hover:text-gray-600"><IconX /></button>
+          <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:p-4">
+            <div className="bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-2xl overflow-hidden shadow-2xl animate-in">
+              <div className="flex justify-between items-center p-4 sm:p-5 border-b border-gray-100 dark:border-gray-800">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">{t.trashTitle || 'Lixeira'} ({deletedItems.length})</h2>
+                <button onClick={() => setIsTrashModalOpen(false)} className="p-2 text-gray-400 hover:text-gray-600 rounded-lg touch-compact"><IconX /></button>
               </div>
-              <div className="p-5 max-h-[60vh] overflow-y-auto">
+              <div className="p-4 sm:p-5" style={{ maxHeight: 'calc(70dvh - 80px)', overflowY: 'auto' }}>
                 {deletedItems.length === 0 ? (
                   <p className="text-center text-gray-500 dark:text-gray-400 py-8">{t.noItemsInTrash || 'Nenhum item na lixeira'}</p>
                 ) : (
                   <div className="space-y-3">
                     {deletedItems.map(item => (
-                      <div key={item.id} className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 rounded-xl">
-                        <div>
-                          <h4 className="font-medium text-gray-800 dark:text-gray-100">{item.title}</h4>
+                      <div key={item.id} className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 rounded-xl gap-3">
+                        <div className="min-w-0 flex-1">
+                          <h4 className="font-medium text-gray-800 dark:text-gray-100 truncate">{item.title}</h4>
                           <p className="text-xs text-gray-500 dark:text-gray-400">Excluído em: {new Date(item.deletedAt).toLocaleString()}</p>
                         </div>
                         <button
@@ -2380,7 +2365,7 @@ const toggleItemPurchased = useCallback((id) => {
                             setToastMessage(t.itemRestored || 'Item restaurado');
                             setTimeout(() => setToastMessage(''), 2000);
                           }}
-                          className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm rounded-lg"
+                          className="shrink-0 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm rounded-lg touch-compact"
                         >
                           {t.restore || 'Restaurar'}
                         </button>
@@ -2395,7 +2380,7 @@ const toggleItemPurchased = useCallback((id) => {
                             setTimeout(() => setToastMessage(''), 2000);
                           }
                         }}
-                        className="w-full mt-3 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-sm font-medium"
+                        className="w-full mt-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-sm font-medium touch-compact"
                       >
                         {t.emptyTrash || 'Esvaziar Lixeira'}
                       </button>
@@ -2409,8 +2394,8 @@ const toggleItemPurchased = useCallback((id) => {
 
         {/* Toast Notification */}
         {toastMessage && (
-          <div className="fixed bottom-6 right-6 z-50 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 animate-in slide-in-from-bottom-5 fade-in duration-300">
-            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white">
+          <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-4 sm:px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 animate-in max-w-xs sm:max-w-sm">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center text-white shrink-0">
               <IconCheck />
             </div>
             <span className="text-sm font-medium">{toastMessage}</span>
